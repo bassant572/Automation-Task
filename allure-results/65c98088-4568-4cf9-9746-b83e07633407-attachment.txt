@@ -1,0 +1,37 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                        Starting Execution: '1 out of 1' test cases in the current suite                                        
+                                             Test Method: 'constantapi.automationApi.automationApi'                                             
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+[ReportManager] Response status code: "200", status line: "HTTP/1.1 200 OK" @12-08-2023 22:08:07.0820 PM
+[ReportManager] Expected "true", and actual "true" @12-08-2023 22:08:07.0836 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "true" and Actual "true". Comparison Type "EQUALS". Validation Type "POSITIVE". @12-08-2023 22:08:07.0841 PM
+[ReportManager] Assertion Passed: Evaluating that the response is successful (Status code is between 200 and 299)... @12-08-2023 22:08:07.0842 PM
+[ReportManager] Perform request "GET | Target Status Code: 0 | Service URL: https://provider.test.carefer.co/api/customer/v1/constant | Content Type: */* | Response Time: 1360ms". @12-08-2023 22:08:09.0134 PM
+[ReportManager] Successfully created attachment 'API Request - Specifications' @12-08-2023 22:08:09.0139 PM
+[ReportManager] Successfully created attachment 'API Response - JSON Body' @12-08-2023 22:08:09.0860 PM
+[ReportManager] Get response jsonvalue "message". @12-08-2023 22:08:10.0110 PM
+[ReportManager] Expected "تم استرجاع الثوابت بنجاح", and actual "تم استرجاع الثوابت بنجاح" @12-08-2023 22:08:10.0111 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "تم استرجاع الثوابت بنجاح" and Actual "تم استرجاع الثوابت بنجاح". Comparison Type "CONTAINS". Validation Type "POSITIVE". @12-08-2023 22:08:10.0112 PM
+[ReportManager] Assertion Passed: The API response extracted value from the JSON path "message" contains "تم استرجاع الثوابت بنجاح". @12-08-2023 22:08:10.0113 PM
+[ReportManager] Get response jsonvalue "data.minimum_vehicle_make_year". @12-08-2023 22:08:10.0169 PM
+[ReportManager] Expected "2001", and actual "2001" @12-08-2023 22:08:10.0170 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "2001" and Actual "2001". Comparison Type "EQUALS". Validation Type "POSITIVE". @12-08-2023 22:08:10.0171 PM
+[ReportManager] Assertion Passed: The API response extracted value from the JSON path "data.minimum_vehicle_make_year" is equal to "2001". @12-08-2023 22:08:10.0171 PM
+[ReportManager] Get response jsonvalue "data.engine_types[0].name_en". @12-08-2023 22:08:10.0223 PM
+[ReportManager] Expected "Petrol Engines", and actual " Petrol Engines" @12-08-2023 22:08:10.0224 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "Petrol Engines" and Actual " Petrol Engines". Comparison Type "CONTAINS". Validation Type "POSITIVE". @12-08-2023 22:08:10.0225 PM
+[ReportManager] Assertion Passed: The API response extracted value from the JSON path "data.engine_types[0].name_en" contains "Petrol Engines". @12-08-2023 22:08:10.0225 PM
+[ReportManager] Get response jsonvalue "data.brands[0].image". @12-08-2023 22:08:10.0264 PM
+[ReportManager] Expected "gmc.png", and actual "gmc.png" @12-08-2023 22:08:10.0264 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "gmc.png" and Actual "gmc.png". Comparison Type "CONTAINS". Validation Type "POSITIVE". @12-08-2023 22:08:10.0265 PM
+[ReportManager] Assertion Passed: The API response extracted value from the JSON path "data.brands[0].image" contains "gmc.png". @12-08-2023 22:08:10.0266 PM
+[ReportManager] Get response jsonvalue "data.colors[0].name". @12-08-2023 22:08:10.0306 PM
+[ReportManager] Expected "أبيض", and actual "أبيض" @12-08-2023 22:08:10.0307 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "أبيض" and Actual "أبيض". Comparison Type "EQUALS". Validation Type "POSITIVE". @12-08-2023 22:08:10.0308 PM
+[ReportManager] Assertion Passed: The API response extracted value from the JSON path "data.colors[0].name" is equal to "أبيض". @12-08-2023 22:08:10.0309 PM
+[ReportManager] Get response jsonvalue "data.status.1". @12-08-2023 22:08:10.0358 PM
+[ReportManager] Expected "مفعل", and actual "مفعل" @12-08-2023 22:08:10.0359 PM
+[ReportManager] Assertion "ValidateEquals" PASSED. Expected "مفعل" and Actual "مفعل". Comparison Type "EQUALS". Validation Type "POSITIVE". @12-08-2023 22:08:10.0360 PM
+[ReportManager] Assertion Passed: The API response extracted value from the JSON path "data.status.1" is equal to "مفعل". @12-08-2023 22:08:10.0360 PM

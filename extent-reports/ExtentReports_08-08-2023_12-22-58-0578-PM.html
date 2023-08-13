@@ -1,0 +1,8310 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Extent Reports</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Extent Reports - Powered by SHAFT_Engine</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Aug 8, 2023 12:22:41 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Aug 8, 2023 12:22:41 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Aug 8, 2023 12:23:03 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>1</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'>
+<b>1</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='25%'><b>1</b> events passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>3</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"constantapi.automationApi.automationApi":3.666
+};
+</script>
+<div class="row">
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 1,
+failParent: 0,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 1,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 3
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">constantapi.automationApi.automationApi</p>
+            <p class="text-sm">
+              <span>12:22:59 PM</span> / <span>00:00:03:666</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">constantapi.automationApi.automationApi</h5>
+<span class='badge badge-success'>08.08.2023 12:22:59 PM</span>
+<span class='badge badge-danger'>08.08.2023 12:23:03 PM</span>
+<span class='badge badge-default'>00:00:03:666</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:23:01 PM</td>
+        <td>
+          Assertion Passed: Evaluating that the response is successful (Status code is between 200 and 299)...
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:23:02 PM</td>
+        <td>
+          Perform request "GET | Target Status Code: 0 | Service URL: https://provider.test.carefer.co/api/customer/v1/constant | Content Type: */* | Response Time: 872ms".
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:23:03 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-0'></div>
+ <script>
+  function jsonTreeCreate0() { 
+   document.getElementById('code-block-json-0').innerHTML = JSONTree.create({
+  "data": {
+    "models": [
+      {
+        "name_ar": " 1 seriess",
+        "name": " 1 seriess",
+        "id": 6,
+        "brand_id": 12,
+        "name_en": " 1 series"
+      },
+      {
+        "name_ar": " 2 series",
+        "name": " 2 series",
+        "id": 7,
+        "brand_id": 12,
+        "name_en": " 2 series"
+      },
+      {
+        "name_ar": " 3 series",
+        "name": " 3 series",
+        "id": 8,
+        "brand_id": 12,
+        "name_en": " 3 series"
+      },
+      {
+        "name_ar": " 3 series convertible",
+        "name": " 3 series convertible",
+        "id": 9,
+        "brand_id": 12,
+        "name_en": " 3 series convertible"
+      },
+      {
+        "name_ar": " 3 series coupe",
+        "name": " 3 series coupe",
+        "id": 10,
+        "brand_id": 12,
+        "name_en": " 3 series coupe"
+      },
+      {
+        "name_ar": " 4 series",
+        "name": " 4 series",
+        "id": 11,
+        "brand_id": 12,
+        "name_en": " 4 series"
+      },
+      {
+        "name_ar": " 4 series convertible",
+        "name": " 4 series convertible",
+        "id": 12,
+        "brand_id": 12,
+        "name_en": " 4 series convertible"
+      },
+      {
+        "name_ar": " 4 series gran coupe",
+        "name": " 4 series gran coupe",
+        "id": 13,
+        "brand_id": 12,
+        "name_en": " 4 series gran coupe"
+      },
+      {
+        "name_ar": " 5 series",
+        "name": " 5 series",
+        "id": 14,
+        "brand_id": 12,
+        "name_en": " 5 series"
+      },
+      {
+        "name_ar": " 5 series gt",
+        "name": " 5 series gt",
+        "id": 15,
+        "brand_id": 12,
+        "name_en": " 5 series gt"
+      },
+      {
+        "name_ar": " 6 series cabriolet",
+        "name": " 6 series cabriolet",
+        "id": 16,
+        "brand_id": 12,
+        "name_en": " 6 series cabriolet"
+      },
+      {
+        "name_ar": " 6 series coupe",
+        "name": " 6 series coupe",
+        "id": 17,
+        "brand_id": 12,
+        "name_en": " 6 series coupe"
+      },
+      {
+        "name_ar": " 6 series gran coupe",
+        "name": " 6 series gran coupe",
+        "id": 18,
+        "brand_id": 12,
+        "name_en": " 6 series gran coupe"
+      },
+      {
+        "name_ar": " 7 series",
+        "name": " 7 series",
+        "id": 19,
+        "brand_id": 12,
+        "name_en": " 7 series"
+      },
+      {
+        "name_ar": " 8 series",
+        "name": " 8 series",
+        "id": 20,
+        "brand_id": 12,
+        "name_en": " 8 series"
+      },
+      {
+        "name_ar": " i8",
+        "name": " i8",
+        "id": 21,
+        "brand_id": 12,
+        "name_en": " i8"
+      },
+      {
+        "name_ar": " m2",
+        "name": " m2",
+        "id": 22,
+        "brand_id": 12,
+        "name_en": " m2"
+      },
+      {
+        "name_ar": " m3",
+        "name": " m3",
+        "id": 23,
+        "brand_id": 12,
+        "name_en": " m3"
+      },
+      {
+        "name_ar": " m3 convertible",
+        "name": " m3 convertible",
+        "id": 24,
+        "brand_id": 12,
+        "name_en": " m3 convertible"
+      },
+      {
+        "name_ar": " m3 coupe",
+        "name": " m3 coupe",
+        "id": 25,
+        "brand_id": 12,
+        "name_en": " m3 coupe"
+      },
+      {
+        "name_ar": " m4",
+        "name": " m4",
+        "id": 26,
+        "brand_id": 12,
+        "name_en": " m4"
+      },
+      {
+        "name_ar": " m4 convertible",
+        "name": " m4 convertible",
+        "id": 27,
+        "brand_id": 12,
+        "name_en": " m4 convertible"
+      },
+      {
+        "name_ar": " m5",
+        "name": " m5",
+        "id": 28,
+        "brand_id": 12,
+        "name_en": " m5"
+      },
+      {
+        "name_ar": " m6 cabriolet",
+        "name": " m6 cabriolet",
+        "id": 29,
+        "brand_id": 12,
+        "name_en": " m6 cabriolet"
+      },
+      {
+        "name_ar": " m6 coupe",
+        "name": " m6 coupe",
+        "id": 30,
+        "brand_id": 12,
+        "name_en": " m6 coupe"
+      },
+      {
+        "name_ar": " m6 gran coupe",
+        "name": " m6 gran coupe",
+        "id": 31,
+        "brand_id": 12,
+        "name_en": " m6 gran coupe"
+      },
+      {
+        "name_ar": " x1",
+        "name": " x1",
+        "id": 32,
+        "brand_id": 12,
+        "name_en": " x1"
+      },
+      {
+        "name_ar": " x3",
+        "name": " x3",
+        "id": 33,
+        "brand_id": 12,
+        "name_en": " x3"
+      },
+      {
+        "name_ar": " x4",
+        "name": " x4",
+        "id": 34,
+        "brand_id": 12,
+        "name_en": " x4"
+      },
+      {
+        "name_ar": " x5",
+        "name": " x5",
+        "id": 35,
+        "brand_id": 12,
+        "name_en": " x5"
+      },
+      {
+        "name_ar": " x5 m",
+        "name": " x5 m",
+        "id": 36,
+        "brand_id": 12,
+        "name_en": " x5 m"
+      },
+      {
+        "name_ar": " x6",
+        "name": " x6",
+        "id": 37,
+        "brand_id": 12,
+        "name_en": " x6"
+      },
+      {
+        "name_ar": " x6 m",
+        "name": " x6 m",
+        "id": 38,
+        "brand_id": 12,
+        "name_en": " x6 m"
+      },
+      {
+        "name_ar": " z4",
+        "name": " z4",
+        "id": 39,
+        "brand_id": 12,
+        "name_en": " z4"
+      },
+      {
+        "name_ar": "a1",
+        "name": "a1",
+        "id": 40,
+        "brand_id": 7,
+        "name_en": "a1"
+      },
+      {
+        "name_ar": "a3",
+        "name": "a3",
+        "id": 41,
+        "brand_id": 7,
+        "name_en": "a3"
+      },
+      {
+        "name_ar": "a3 sedan",
+        "name": "a3 sedan",
+        "id": 42,
+        "brand_id": 7,
+        "name_en": "a3 sedan"
+      },
+      {
+        "name_ar": "a4",
+        "name": "a4",
+        "id": 43,
+        "brand_id": 7,
+        "name_en": "a4"
+      },
+      {
+        "name_ar": "a5 cabriolet",
+        "name": "a5 cabriolet",
+        "id": 44,
+        "brand_id": 7,
+        "name_en": "a5 cabriolet"
+      },
+      {
+        "name_ar": "a5 coupe",
+        "name": "a5 coupe",
+        "id": 45,
+        "brand_id": 7,
+        "name_en": "a5 coupe"
+      },
+      {
+        "name_ar": "a5 sportback",
+        "name": "a5 sportback",
+        "id": 46,
+        "brand_id": 7,
+        "name_en": "a5 sportback"
+      },
+      {
+        "name_ar": "a6",
+        "name": "a6",
+        "id": 47,
+        "brand_id": 7,
+        "name_en": "a6"
+      },
+      {
+        "name_ar": "a7",
+        "name": "a7",
+        "id": 48,
+        "brand_id": 7,
+        "name_en": "a7"
+      },
+      {
+        "name_ar": "a8",
+        "name": "a8",
+        "id": 49,
+        "brand_id": 7,
+        "name_en": "a8"
+      },
+      {
+        "name_ar": "q2",
+        "name": "q2",
+        "id": 50,
+        "brand_id": 7,
+        "name_en": "q2"
+      },
+      {
+        "name_ar": "q3",
+        "name": "q3",
+        "id": 51,
+        "brand_id": 7,
+        "name_en": "q3"
+      },
+      {
+        "name_ar": "q5",
+        "name": "q5",
+        "id": 52,
+        "brand_id": 7,
+        "name_en": "q5"
+      },
+      {
+        "name_ar": "q7",
+        "name": "q7",
+        "id": 53,
+        "brand_id": 7,
+        "name_en": "q7"
+      },
+      {
+        "name_ar": "r8",
+        "name": "r8",
+        "id": 54,
+        "brand_id": 7,
+        "name_en": "r8"
+      },
+      {
+        "name_ar": "r8 spyder",
+        "name": "r8 spyder",
+        "id": 55,
+        "brand_id": 7,
+        "name_en": "r8 spyder"
+      },
+      {
+        "name_ar": "rs 3",
+        "name": "rs 3",
+        "id": 56,
+        "brand_id": 7,
+        "name_en": "rs 3"
+      },
+      {
+        "name_ar": "rs 4",
+        "name": "rs 4",
+        "id": 57,
+        "brand_id": 7,
+        "name_en": "rs 4"
+      },
+      {
+        "name_ar": "rs 5",
+        "name": "rs 5",
+        "id": 58,
+        "brand_id": 7,
+        "name_en": "rs 5"
+      },
+      {
+        "name_ar": "rs 6",
+        "name": "rs 6",
+        "id": 59,
+        "brand_id": 7,
+        "name_en": "rs 6"
+      },
+      {
+        "name_ar": "rs 7",
+        "name": "rs 7",
+        "id": 60,
+        "brand_id": 7,
+        "name_en": "rs 7"
+      },
+      {
+        "name_ar": "rs q3",
+        "name": "rs q3",
+        "id": 61,
+        "brand_id": 7,
+        "name_en": "rs q3"
+      },
+      {
+        "name_ar": "s q5",
+        "name": "s q5",
+        "id": 62,
+        "brand_id": 7,
+        "name_en": "s q5"
+      },
+      {
+        "name_ar": "s3",
+        "name": "s3",
+        "id": 63,
+        "brand_id": 7,
+        "name_en": "s3"
+      },
+      {
+        "name_ar": "s5",
+        "name": "s5",
+        "id": 64,
+        "brand_id": 7,
+        "name_en": "s5"
+      },
+      {
+        "name_ar": "s6",
+        "name": "s6",
+        "id": 65,
+        "brand_id": 7,
+        "name_en": "s6"
+      },
+      {
+        "name_ar": "s7",
+        "name": "s7",
+        "id": 66,
+        "brand_id": 7,
+        "name_en": "s7"
+      },
+      {
+        "name_ar": "s8",
+        "name": "s8",
+        "id": 67,
+        "brand_id": 7,
+        "name_en": "s8"
+      },
+      {
+        "name_ar": "tt",
+        "name": "tt",
+        "id": 68,
+        "brand_id": 7,
+        "name_en": "tt"
+      },
+      {
+        "name_ar": "أفلانش",
+        "name": "أفلانش",
+        "id": 69,
+        "brand_id": 33,
+        "name_en": "avalanche"
+      },
+      {
+        "name_ar": "افيو",
+        "name": "افيو",
+        "id": 70,
+        "brand_id": 33,
+        "name_en": "aveo"
+      },
+      {
+        "name_ar": "كامارو",
+        "name": "كامارو",
+        "id": 73,
+        "brand_id": 33,
+        "name_en": "camaro"
+      },
+      {
+        "name_ar": "كابريس",
+        "name": "كابريس",
+        "id": 75,
+        "brand_id": 33,
+        "name_en": "caprice"
+      },
+      {
+        "name_ar": "كابتيفا",
+        "name": "كابتيفا",
+        "id": 76,
+        "brand_id": 33,
+        "name_en": "captiva"
+      },
+      {
+        "name_ar": "كولورادو",
+        "name": "كولورادو",
+        "id": 77,
+        "brand_id": 33,
+        "name_en": "colorado"
+      },
+      {
+        "name_ar": "كورفيت",
+        "name": "كورفيت",
+        "id": 78,
+        "brand_id": 33,
+        "name_en": "corvette"
+      },
+      {
+        "name_ar": "كروز",
+        "name": "كروز",
+        "id": 79,
+        "brand_id": 33,
+        "name_en": "cruze"
+      },
+      {
+        "name_ar": "csv cr8",
+        "name": "csv cr8",
+        "id": 80,
+        "brand_id": 33,
+        "name_en": "csv cr8"
+      },
+      {
+        "name_ar": "إبيكا",
+        "name": "إبيكا",
+        "id": 81,
+        "brand_id": 33,
+        "name_en": "epica"
+      },
+      {
+        "name_ar": "أمبالا",
+        "name": "أمبالا",
+        "id": 82,
+        "brand_id": 33,
+        "name_en": "impala"
+      },
+      {
+        "name_ar": "لومينا",
+        "name": "لومينا",
+        "id": 83,
+        "brand_id": 33,
+        "name_en": "lumina"
+      },
+      {
+        "name_ar": "ماليبو",
+        "name": "ماليبو",
+        "id": 84,
+        "brand_id": 33,
+        "name_en": "malibu"
+      },
+      {
+        "name_ar": "أوبترا",
+        "name": "أوبترا",
+        "id": 85,
+        "brand_id": 33,
+        "name_en": "optra"
+      },
+      {
+        "name_ar": "سيلفرادو",
+        "name": "سيلفرادو",
+        "id": 86,
+        "brand_id": 33,
+        "name_en": "silverado"
+      },
+      {
+        "name_ar": "سونك",
+        "name": "سونك",
+        "id": 87,
+        "brand_id": 33,
+        "name_en": "sonic"
+      },
+      {
+        "name_ar": "سبارك",
+        "name": "سبارك",
+        "id": 88,
+        "brand_id": 33,
+        "name_en": "spark"
+      },
+      {
+        "name_ar": "سوبربان",
+        "name": "سوبربان",
+        "id": 89,
+        "brand_id": 33,
+        "name_en": "suburban"
+      },
+      {
+        "name_ar": "تاهو",
+        "name": "تاهو",
+        "id": 91,
+        "brand_id": 33,
+        "name_en": "tahoe"
+      },
+      {
+        "name_ar": "تريل بليزر",
+        "name": "تريل بليزر",
+        "id": 92,
+        "brand_id": 33,
+        "name_en": "trail blazer"
+      },
+      {
+        "name_ar": "ترافرس",
+        "name": "ترافرس",
+        "id": 93,
+        "brand_id": 33,
+        "name_en": "traverse"
+      },
+      {
+        "name_ar": "trax",
+        "name": "trax",
+        "id": 94,
+        "brand_id": 33,
+        "name_en": "trax"
+      },
+      {
+        "name_ar": "أبلاندر",
+        "name": "أبلاندر",
+        "id": 95,
+        "brand_id": 33,
+        "name_en": "uplander"
+      },
+      {
+        "name_ar": "أكسنت",
+        "name": "أكسنت",
+        "id": 96,
+        "brand_id": 54,
+        "name_en": "accent"
+      },
+      {
+        "name_ar": "atos prime",
+        "name": "atos prime",
+        "id": 97,
+        "brand_id": 54,
+        "name_en": "atos prime"
+      },
+      {
+        "name_ar": "أزيرا",
+        "name": "أزيرا",
+        "id": 98,
+        "brand_id": 54,
+        "name_en": "azera"
+      },
+      {
+        "name_ar": "سينتنال",
+        "name": "سينتنال",
+        "id": 99,
+        "brand_id": 54,
+        "name_en": "centennial"
+      },
+      {
+        "name_ar": "كوبي",
+        "name": "كوبي",
+        "id": 100,
+        "brand_id": 54,
+        "name_en": "coupe"
+      },
+      {
+        "name_ar": "كريتا",
+        "name": "كريتا",
+        "id": 101,
+        "brand_id": 54,
+        "name_en": "creta"
+      },
+      {
+        "name_ar": "إلنترا",
+        "name": "إلنترا",
+        "id": 102,
+        "brand_id": 54,
+        "name_en": "elantra"
+      },
+      {
+        "name_ar": "جينسس",
+        "name": "جينسس",
+        "id": 104,
+        "brand_id": 54,
+        "name_en": "genesis"
+      },
+      {
+        "name_ar": "جيتز",
+        "name": "جيتز",
+        "id": 106,
+        "brand_id": 54,
+        "name_en": "getz"
+      },
+      {
+        "name_ar": "اتش 1",
+        "name": "اتش 1",
+        "id": 109,
+        "brand_id": 54,
+        "name_en": "h1"
+      },
+      {
+        "name_ar": "آي 10",
+        "name": "آي 10",
+        "id": 110,
+        "brand_id": 54,
+        "name_en": "i10"
+      },
+      {
+        "name_ar": "آي 20",
+        "name": "آي 20",
+        "id": 111,
+        "brand_id": 54,
+        "name_en": "i20"
+      },
+      {
+        "name_ar": "آي 30",
+        "name": "آي 30",
+        "id": 112,
+        "brand_id": 54,
+        "name_en": "i30"
+      },
+      {
+        "name_ar": "آي 40",
+        "name": "آي 40",
+        "id": 113,
+        "brand_id": 54,
+        "name_en": "i40"
+      },
+      {
+        "name_ar": "ماتريكس",
+        "name": "ماتريكس",
+        "id": 114,
+        "brand_id": 54,
+        "name_en": "matrix"
+      },
+      {
+        "name_ar": "سانتا في",
+        "name": "سانتا في",
+        "id": 115,
+        "brand_id": 54,
+        "name_en": "santa fe"
+      },
+      {
+        "name_ar": "سوناتا",
+        "name": "سوناتا",
+        "id": 116,
+        "brand_id": 54,
+        "name_en": "sonata"
+      },
+      {
+        "name_ar": "تيراكان",
+        "name": "تيراكان",
+        "id": 117,
+        "brand_id": 54,
+        "name_en": "terracan"
+      },
+      {
+        "name_ar": "تراجيت",
+        "name": "تراجيت",
+        "id": 118,
+        "brand_id": 54,
+        "name_en": "trajet"
+      },
+      {
+        "name_ar": "توسان",
+        "name": "توسان",
+        "id": 119,
+        "brand_id": 54,
+        "name_en": "tucson"
+      },
+      {
+        "name_ar": "فلوستر",
+        "name": "فلوستر",
+        "id": 120,
+        "brand_id": 54,
+        "name_en": "veloster"
+      },
+      {
+        "name_ar": "فيراكروز",
+        "name": "فيراكروز",
+        "id": 122,
+        "brand_id": 54,
+        "name_en": "veracruz"
+      },
+      {
+        "name_ar": "350z",
+        "name": "350z",
+        "id": 123,
+        "brand_id": 51,
+        "name_en": "350z"
+      },
+      {
+        "name_ar": "370z",
+        "name": "370z",
+        "id": 124,
+        "brand_id": 51,
+        "name_en": "370z"
+      },
+      {
+        "name_ar": "370z roadster",
+        "name": "370z roadster",
+        "id": 125,
+        "brand_id": 51,
+        "name_en": "370z roadster"
+      },
+      {
+        "name_ar": "التيما",
+        "name": "التيما",
+        "id": 126,
+        "brand_id": 51,
+        "name_en": "altima"
+      },
+      {
+        "name_ar": "أرمادا",
+        "name": "أرمادا",
+        "id": 128,
+        "brand_id": 51,
+        "name_en": "armada"
+      },
+      {
+        "name_ar": "جي تي آر",
+        "name": "جي تي آر",
+        "id": 129,
+        "brand_id": 51,
+        "name_en": "gt r"
+      },
+      {
+        "name_ar": "جوك",
+        "name": "جوك",
+        "id": 130,
+        "brand_id": 51,
+        "name_en": "juke"
+      },
+      {
+        "name_ar": "كيكس",
+        "name": "كيكس",
+        "id": 131,
+        "brand_id": 51,
+        "name_en": "kicks"
+      },
+      {
+        "name_ar": "مكسيما",
+        "name": "مكسيما",
+        "id": 132,
+        "brand_id": 51,
+        "name_en": "maxima"
+      },
+      {
+        "name_ar": "ميكرا",
+        "name": "ميكرا",
+        "id": 133,
+        "brand_id": 51,
+        "name_en": "micra"
+      },
+      {
+        "name_ar": "مورانو",
+        "name": "مورانو",
+        "id": 134,
+        "brand_id": 51,
+        "name_en": "murano"
+      },
+      {
+        "name_ar": "نافارا",
+        "name": "نافارا",
+        "id": 135,
+        "brand_id": 51,
+        "name_en": "navara"
+      },
+      {
+        "name_ar": "باث فايندر",
+        "name": "باث فايندر",
+        "id": 136,
+        "brand_id": 51,
+        "name_en": "pathfinder"
+      },
+      {
+        "name_ar": "باترول",
+        "name": "باترول",
+        "id": 138,
+        "brand_id": 51,
+        "name_en": "patrol"
+      },
+      {
+        "name_ar": "بكب",
+        "name": "بكب",
+        "id": 141,
+        "brand_id": 51,
+        "name_en": "pickup"
+      },
+      {
+        "name_ar": "قاشقاي",
+        "name": "قاشقاي",
+        "id": 142,
+        "brand_id": 51,
+        "name_en": "qashqai"
+      },
+      {
+        "name_ar": "سينترا",
+        "name": "سينترا",
+        "id": 143,
+        "brand_id": 51,
+        "name_en": "sentra"
+      },
+      {
+        "name_ar": "صني",
+        "name": "صني",
+        "id": 144,
+        "brand_id": 51,
+        "name_en": "sunny"
+      },
+      {
+        "name_ar": "تيدا",
+        "name": "تيدا",
+        "id": 145,
+        "brand_id": 51,
+        "name_en": "tiida"
+      },
+      {
+        "name_ar": "أورفان",
+        "name": "أورفان",
+        "id": 146,
+        "brand_id": 51,
+        "name_en": "urvan"
+      },
+      {
+        "name_ar": "اكس تريل",
+        "name": "اكس تريل",
+        "id": 147,
+        "brand_id": 51,
+        "name_en": "x trail"
+      },
+      {
+        "name_ar": "اكستيرا",
+        "name": "اكستيرا",
+        "id": 148,
+        "brand_id": 51,
+        "name_en": "xterra"
+      },
+      {
+        "name_ar": "86",
+        "name": "86",
+        "id": 174,
+        "brand_id": 17,
+        "name_en": "86"
+      },
+      {
+        "name_ar": "أوريون",
+        "name": "أوريون",
+        "id": 175,
+        "brand_id": 17,
+        "name_en": "aurion"
+      },
+      {
+        "name_ar": "أفالون",
+        "name": "أفالون",
+        "id": 176,
+        "brand_id": 17,
+        "name_en": "avalon"
+      },
+      {
+        "name_ar": "أفانزا",
+        "name": "أفانزا",
+        "id": 177,
+        "brand_id": 17,
+        "name_en": "avanza"
+      },
+      {
+        "name_ar": "كامري",
+        "name": "كامري",
+        "id": 178,
+        "brand_id": 17,
+        "name_en": "camry"
+      },
+      {
+        "name_ar": "كورولا",
+        "name": "كورولا",
+        "id": 179,
+        "brand_id": 17,
+        "name_en": "corolla"
+      },
+      {
+        "name_ar": "أف جي",
+        "name": "أف جي",
+        "id": 180,
+        "brand_id": 17,
+        "name_en": "fj cruiser"
+      },
+      {
+        "name_ar": "فورتشنر",
+        "name": "فورتشنر",
+        "id": 181,
+        "brand_id": 17,
+        "name_en": "fortuner"
+      },
+      {
+        "name_ar": "هايس",
+        "name": "هايس",
+        "id": 182,
+        "brand_id": 17,
+        "name_en": "hiace"
+      },
+      {
+        "name_ar": "هايلكس",
+        "name": "هايلكس",
+        "id": 183,
+        "brand_id": 17,
+        "name_en": "hilux"
+      },
+      {
+        "name_ar": "أنوفا",
+        "name": "أنوفا",
+        "id": 184,
+        "brand_id": 17,
+        "name_en": "innova"
+      },
+      {
+        "name_ar": "لاندكروزر",
+        "name": "لاندكروزر",
+        "id": 185,
+        "brand_id": 17,
+        "name_en": "land cruiser"
+      },
+      {
+        "name_ar": "لاندكروزر 70",
+        "name": "لاندكروزر 70",
+        "id": 186,
+        "brand_id": 17,
+        "name_en": "land cruiser 70"
+      },
+      {
+        "name_ar": "لاندكروزر إل إكس (شاص)",
+        "name": "لاندكروزر إل إكس (شاص)",
+        "id": 187,
+        "brand_id": 17,
+        "name_en": "land cruiser pickup"
+      },
+      {
+        "name_ar": "برادو",
+        "name": "برادو",
+        "id": 188,
+        "brand_id": 17,
+        "name_en": "land cruiser prado"
+      },
+      {
+        "name_ar": "بريفيا",
+        "name": "بريفيا",
+        "id": 190,
+        "brand_id": 17,
+        "name_en": "previa"
+      },
+      {
+        "name_ar": "بريوس",
+        "name": "بريوس",
+        "id": 191,
+        "brand_id": 17,
+        "name_en": "prius"
+      },
+      {
+        "name_ar": "راف 4",
+        "name": "راف 4",
+        "id": 192,
+        "brand_id": 17,
+        "name_en": "rav 4"
+      },
+      {
+        "name_ar": "سكويا",
+        "name": "سكويا",
+        "id": 193,
+        "brand_id": 17,
+        "name_en": "sequoia"
+      },
+      {
+        "name_ar": "تاندرا",
+        "name": "تاندرا",
+        "id": 194,
+        "brand_id": 17,
+        "name_en": "tundra"
+      },
+      {
+        "name_ar": "اكس اي",
+        "name": "اكس اي",
+        "id": 195,
+        "brand_id": 17,
+        "name_en": "xa"
+      },
+      {
+        "name_ar": "يارس",
+        "name": "يارس",
+        "id": 196,
+        "brand_id": 17,
+        "name_en": "yaris"
+      },
+      {
+        "name_ar": "زيلاس",
+        "name": "زيلاس",
+        "id": 198,
+        "brand_id": 17,
+        "name_en": "zelas"
+      },
+      {
+        "name_ar": "فيكتوريا",
+        "name": "فيكتوريا",
+        "id": 199,
+        "brand_id": 34,
+        "name_en": "crown victoria"
+      },
+      {
+        "name_ar": "إيكوسبورت",
+        "name": "إيكوسبورت",
+        "id": 200,
+        "brand_id": 34,
+        "name_en": "ecosport"
+      },
+      {
+        "name_ar": "إدج",
+        "name": "إدج",
+        "id": 201,
+        "brand_id": 34,
+        "name_en": "edge"
+      },
+      {
+        "name_ar": "إسكيب",
+        "name": "إسكيب",
+        "id": 202,
+        "brand_id": 34,
+        "name_en": "escape"
+      },
+      {
+        "name_ar": "إفرست",
+        "name": "إفرست",
+        "id": 203,
+        "brand_id": 34,
+        "name_en": "everest"
+      },
+      {
+        "name_ar": "إكسبيديشن",
+        "name": "إكسبيديشن",
+        "id": 204,
+        "brand_id": 34,
+        "name_en": "expedition"
+      },
+      {
+        "name_ar": "‫إكسبلورر",
+        "name": "‫إكسبلورر",
+        "id": 205,
+        "brand_id": 34,
+        "name_en": "explorer"
+      },
+      {
+        "name_ar": "اف 150",
+        "name": "اف 150",
+        "id": 206,
+        "brand_id": 34,
+        "name_en": "F 150"
+      },
+      {
+        "name_ar": "اف 150 رابتر",
+        "name": "اف 150 رابتر",
+        "id": 207,
+        "brand_id": 34,
+        "name_en": "F 150 raptor"
+      },
+      {
+        "name_ar": "فيستا",
+        "name": "فيستا",
+        "id": 208,
+        "brand_id": 34,
+        "name_en": "fiesta"
+      },
+      {
+        "name_ar": "فيجو",
+        "name": "فيجو",
+        "id": 209,
+        "brand_id": 34,
+        "name_en": "figo"
+      },
+      {
+        "name_ar": "فايف هاندرد",
+        "name": "فايف هاندرد",
+        "id": 210,
+        "brand_id": 34,
+        "name_en": "five hundred"
+      },
+      {
+        "name_ar": "فليكس",
+        "name": "فليكس",
+        "id": 211,
+        "brand_id": 34,
+        "name_en": "flex"
+      },
+      {
+        "name_ar": "فوكس",
+        "name": "فوكس",
+        "id": 212,
+        "brand_id": 34,
+        "name_en": "focus"
+      },
+      {
+        "name_ar": "فريستار",
+        "name": "فريستار",
+        "id": 214,
+        "brand_id": 34,
+        "name_en": "freestar"
+      },
+      {
+        "name_ar": "فيوجن",
+        "name": "فيوجن",
+        "id": 215,
+        "brand_id": 34,
+        "name_en": "fusion"
+      },
+      {
+        "name_ar": "جي تي",
+        "name": "جي تي",
+        "id": 216,
+        "brand_id": 34,
+        "name_en": "gt"
+      },
+      {
+        "name_ar": "مونديو",
+        "name": "مونديو",
+        "id": 217,
+        "brand_id": 34,
+        "name_en": "mondeo"
+      },
+      {
+        "name_ar": "موستانج",
+        "name": "موستانج",
+        "id": 218,
+        "brand_id": 34,
+        "name_en": "mustang"
+      },
+      {
+        "name_ar": "رينجر",
+        "name": "رينجر",
+        "id": 220,
+        "brand_id": 34,
+        "name_en": "ranger"
+      },
+      {
+        "name_ar": "جي تي 500",
+        "name": "جي تي 500",
+        "id": 221,
+        "brand_id": 34,
+        "name_en": "shelby gt500"
+      },
+      {
+        "name_ar": "توروس",
+        "name": "توروس",
+        "id": 222,
+        "brand_id": 34,
+        "name_en": "taurus"
+      },
+      {
+        "name_ar": "captur",
+        "name": "captur",
+        "id": 223,
+        "brand_id": 25,
+        "name_en": "captur"
+      },
+      {
+        "name_ar": "clio",
+        "name": "clio",
+        "id": 224,
+        "brand_id": 25,
+        "name_en": "clio"
+      },
+      {
+        "name_ar": "clio rs",
+        "name": "clio rs",
+        "id": 225,
+        "brand_id": 25,
+        "name_en": "clio rs"
+      },
+      {
+        "name_ar": "dokker van",
+        "name": "dokker van",
+        "id": 226,
+        "brand_id": 25,
+        "name_en": "dokker van"
+      },
+      {
+        "name_ar": "داستر",
+        "name": "داستر",
+        "id": 227,
+        "brand_id": 25,
+        "name_en": "duster"
+      },
+      {
+        "name_ar": "espace",
+        "name": "espace",
+        "id": 228,
+        "brand_id": 25,
+        "name_en": "espace"
+      },
+      {
+        "name_ar": "فلونس",
+        "name": "فلونس",
+        "id": 229,
+        "brand_id": 25,
+        "name_en": "fluence"
+      },
+      {
+        "name_ar": "كوليوس",
+        "name": "كوليوس",
+        "id": 230,
+        "brand_id": 25,
+        "name_en": "koleos"
+      },
+      {
+        "name_ar": "laguna",
+        "name": "laguna",
+        "id": 231,
+        "brand_id": 25,
+        "name_en": "laguna"
+      },
+      {
+        "name_ar": "laguna coupe",
+        "name": "laguna coupe",
+        "id": 232,
+        "brand_id": 25,
+        "name_en": "laguna coupe"
+      },
+      {
+        "name_ar": "لوغان",
+        "name": "لوغان",
+        "id": 233,
+        "brand_id": 25,
+        "name_en": "logan"
+      },
+      {
+        "name_ar": "logan van",
+        "name": "logan van",
+        "id": 234,
+        "brand_id": 25,
+        "name_en": "logan van"
+      },
+      {
+        "name_ar": "megane",
+        "name": "megane",
+        "id": 235,
+        "brand_id": 25,
+        "name_en": "megane"
+      },
+      {
+        "name_ar": "megane cc",
+        "name": "megane cc",
+        "id": 236,
+        "brand_id": 25,
+        "name_en": "megane cc"
+      },
+      {
+        "name_ar": "megane rs",
+        "name": "megane rs",
+        "id": 237,
+        "brand_id": 25,
+        "name_en": "megane rs"
+      },
+      {
+        "name_ar": "سافران",
+        "name": "سافران",
+        "id": 238,
+        "brand_id": 25,
+        "name_en": "safrane"
+      },
+      {
+        "name_ar": "sandero",
+        "name": "sandero",
+        "id": 239,
+        "brand_id": 25,
+        "name_en": "sandero"
+      },
+      {
+        "name_ar": "scenic",
+        "name": "scenic",
+        "id": 240,
+        "brand_id": 25,
+        "name_en": "scenic"
+      },
+      {
+        "name_ar": "سمبول",
+        "name": "سمبول",
+        "id": 241,
+        "brand_id": 25,
+        "name_en": "symbol"
+      },
+      {
+        "name_ar": "talisman",
+        "name": "talisman",
+        "id": 242,
+        "brand_id": 25,
+        "name_en": "talisman"
+      },
+      {
+        "name_ar": "trafic",
+        "name": "trafic",
+        "id": 243,
+        "brand_id": 25,
+        "name_en": "trafic"
+      },
+      {
+        "name_ar": "twizy",
+        "name": "twizy",
+        "id": 244,
+        "brand_id": 25,
+        "name_en": "twizy"
+      },
+      {
+        "name_ar": "zoe",
+        "name": "zoe",
+        "id": 245,
+        "brand_id": 25,
+        "name_en": "zoe"
+      },
+      {
+        "name_ar": "amarok",
+        "name": "amarok",
+        "id": 246,
+        "brand_id": 36,
+        "name_en": "amarok"
+      },
+      {
+        "name_ar": "beetle",
+        "name": "beetle",
+        "id": 247,
+        "brand_id": 36,
+        "name_en": "beetle"
+      },
+      {
+        "name_ar": "beetle cabriolet",
+        "name": "beetle cabriolet",
+        "id": 248,
+        "brand_id": 36,
+        "name_en": "beetle cabriolet"
+      },
+      {
+        "name_ar": "eos",
+        "name": "eos",
+        "id": 249,
+        "brand_id": 36,
+        "name_en": "eos"
+      },
+      {
+        "name_ar": "golf",
+        "name": "golf",
+        "id": 250,
+        "brand_id": 36,
+        "name_en": "golf"
+      },
+      {
+        "name_ar": "golf gti",
+        "name": "golf gti",
+        "id": 251,
+        "brand_id": 36,
+        "name_en": "golf gti"
+      },
+      {
+        "name_ar": "golf plus",
+        "name": "golf plus",
+        "id": 252,
+        "brand_id": 36,
+        "name_en": "golf plus"
+      },
+      {
+        "name_ar": "golf r",
+        "name": "golf r",
+        "id": 253,
+        "brand_id": 36,
+        "name_en": "golf r"
+      },
+      {
+        "name_ar": "golf r32",
+        "name": "golf r32",
+        "id": 254,
+        "brand_id": 36,
+        "name_en": "golf r32"
+      },
+      {
+        "name_ar": "jetta",
+        "name": "jetta",
+        "id": 255,
+        "brand_id": 36,
+        "name_en": "jetta"
+      },
+      {
+        "name_ar": "multivan",
+        "name": "multivan",
+        "id": 256,
+        "brand_id": 36,
+        "name_en": "multivan"
+      },
+      {
+        "name_ar": "باسات",
+        "name": "باسات",
+        "id": 257,
+        "brand_id": 36,
+        "name_en": "passat"
+      },
+      {
+        "name_ar": "passat cc",
+        "name": "passat cc",
+        "id": 258,
+        "brand_id": 36,
+        "name_en": "passat cc"
+      },
+      {
+        "name_ar": "phaeton",
+        "name": "phaeton",
+        "id": 259,
+        "brand_id": 36,
+        "name_en": "phaeton"
+      },
+      {
+        "name_ar": "polo",
+        "name": "polo",
+        "id": 260,
+        "brand_id": 36,
+        "name_en": "polo"
+      },
+      {
+        "name_ar": "polo sedan",
+        "name": "polo sedan",
+        "id": 261,
+        "brand_id": 36,
+        "name_en": "polo sedan"
+      },
+      {
+        "name_ar": "scirocco",
+        "name": "scirocco",
+        "id": 262,
+        "brand_id": 36,
+        "name_en": "scirocco"
+      },
+      {
+        "name_ar": "scirocco r",
+        "name": "scirocco r",
+        "id": 263,
+        "brand_id": 36,
+        "name_en": "scirocco r"
+      },
+      {
+        "name_ar": "sharan",
+        "name": "sharan",
+        "id": 264,
+        "brand_id": 36,
+        "name_en": "sharan"
+      },
+      {
+        "name_ar": "تيجوان",
+        "name": "تيجوان",
+        "id": 265,
+        "brand_id": 36,
+        "name_en": "tiguan"
+      },
+      {
+        "name_ar": "touareg",
+        "name": "touareg",
+        "id": 266,
+        "brand_id": 36,
+        "name_en": "touareg"
+      },
+      {
+        "name_ar": "touran",
+        "name": "touran",
+        "id": 267,
+        "brand_id": 36,
+        "name_en": "touran"
+      },
+      {
+        "name_ar": "ex",
+        "name": "ex",
+        "id": 268,
+        "brand_id": 5,
+        "name_en": "ex"
+      },
+      {
+        "name_ar": "fx",
+        "name": "fx",
+        "id": 269,
+        "brand_id": 5,
+        "name_en": "fx"
+      },
+      {
+        "name_ar": "g",
+        "name": "g",
+        "id": 270,
+        "brand_id": 5,
+        "name_en": "g"
+      },
+      {
+        "name_ar": "g35",
+        "name": "g35",
+        "id": 271,
+        "brand_id": 5,
+        "name_en": "g35"
+      },
+      {
+        "name_ar": "g35 coupe",
+        "name": "g35 coupe",
+        "id": 272,
+        "brand_id": 5,
+        "name_en": "g35 coupe"
+      },
+      {
+        "name_ar": "g37 convertible",
+        "name": "g37 convertible",
+        "id": 273,
+        "brand_id": 5,
+        "name_en": "g37 convertible"
+      },
+      {
+        "name_ar": "g37 coupe",
+        "name": "g37 coupe",
+        "id": 274,
+        "brand_id": 5,
+        "name_en": "g37 coupe"
+      },
+      {
+        "name_ar": "jx",
+        "name": "jx",
+        "id": 275,
+        "brand_id": 5,
+        "name_en": "jx"
+      },
+      {
+        "name_ar": "m",
+        "name": "m",
+        "id": 276,
+        "brand_id": 5,
+        "name_en": "m"
+      },
+      {
+        "name_ar": "q30",
+        "name": "q30",
+        "id": 277,
+        "brand_id": 5,
+        "name_en": "q30"
+      },
+      {
+        "name_ar": "q45",
+        "name": "q45",
+        "id": 278,
+        "brand_id": 5,
+        "name_en": "q45"
+      },
+      {
+        "name_ar": "q50",
+        "name": "q50",
+        "id": 279,
+        "brand_id": 5,
+        "name_en": "q50"
+      },
+      {
+        "name_ar": "q60 convertible",
+        "name": "q60 convertible",
+        "id": 280,
+        "brand_id": 5,
+        "name_en": "q60 convertible"
+      },
+      {
+        "name_ar": "q60 coupe",
+        "name": "q60 coupe",
+        "id": 281,
+        "brand_id": 5,
+        "name_en": "q60 coupe"
+      },
+      {
+        "name_ar": "q70",
+        "name": "q70",
+        "id": 282,
+        "brand_id": 5,
+        "name_en": "q70"
+      },
+      {
+        "name_ar": "qx50",
+        "name": "qx50",
+        "id": 283,
+        "brand_id": 5,
+        "name_en": "qx50"
+      },
+      {
+        "name_ar": "qx56",
+        "name": "qx56",
+        "id": 284,
+        "brand_id": 5,
+        "name_en": "qx56"
+      },
+      {
+        "name_ar": "qx60",
+        "name": "qx60",
+        "id": 285,
+        "brand_id": 5,
+        "name_en": "qx60"
+      },
+      {
+        "name_ar": "qx70",
+        "name": "qx70",
+        "id": 286,
+        "brand_id": 5,
+        "name_en": "qx70"
+      },
+      {
+        "name_ar": "qx80",
+        "name": "qx80",
+        "id": 287,
+        "brand_id": 5,
+        "name_en": "qx80"
+      },
+      {
+        "name_ar": "ats",
+        "name": "ats",
+        "id": 288,
+        "brand_id": 39,
+        "name_en": "ats"
+      },
+      {
+        "name_ar": "ats coupe",
+        "name": "ats coupe",
+        "id": 289,
+        "brand_id": 39,
+        "name_en": "ats coupe"
+      },
+      {
+        "name_ar": "ats v",
+        "name": "ats v",
+        "id": 290,
+        "brand_id": 39,
+        "name_en": "ats v"
+      },
+      {
+        "name_ar": "ats v coupe",
+        "name": "ats v coupe",
+        "id": 291,
+        "brand_id": 39,
+        "name_en": "ats v coupe"
+      },
+      {
+        "name_ar": "bls",
+        "name": "bls",
+        "id": 292,
+        "brand_id": 39,
+        "name_en": "bls"
+      },
+      {
+        "name_ar": "ct6",
+        "name": "ct6",
+        "id": 293,
+        "brand_id": 39,
+        "name_en": "ct6"
+      },
+      {
+        "name_ar": "cts",
+        "name": "cts",
+        "id": 294,
+        "brand_id": 39,
+        "name_en": "cts"
+      },
+      {
+        "name_ar": "cts coupe",
+        "name": "cts coupe",
+        "id": 295,
+        "brand_id": 39,
+        "name_en": "cts coupe"
+      },
+      {
+        "name_ar": "cts v",
+        "name": "cts v",
+        "id": 296,
+        "brand_id": 39,
+        "name_en": "cts v"
+      },
+      {
+        "name_ar": "cts v coupe",
+        "name": "cts v coupe",
+        "id": 297,
+        "brand_id": 39,
+        "name_en": "cts v coupe"
+      },
+      {
+        "name_ar": "dts",
+        "name": "dts",
+        "id": 298,
+        "brand_id": 39,
+        "name_en": "dts"
+      },
+      {
+        "name_ar": "escalade",
+        "name": "escalade",
+        "id": 299,
+        "brand_id": 39,
+        "name_en": "escalade"
+      },
+      {
+        "name_ar": "sls",
+        "name": "sls",
+        "id": 300,
+        "brand_id": 39,
+        "name_en": "sls"
+      },
+      {
+        "name_ar": "srx",
+        "name": "srx",
+        "id": 301,
+        "brand_id": 39,
+        "name_en": "srx"
+      },
+      {
+        "name_ar": "sts",
+        "name": "sts",
+        "id": 302,
+        "brand_id": 39,
+        "name_en": "sts"
+      },
+      {
+        "name_ar": "xlr",
+        "name": "xlr",
+        "id": 303,
+        "brand_id": 39,
+        "name_en": "xlr"
+      },
+      {
+        "name_ar": "xt5",
+        "name": "xt5",
+        "id": 304,
+        "brand_id": 39,
+        "name_en": "xt5"
+      },
+      {
+        "name_ar": "xts",
+        "name": "xts",
+        "id": 305,
+        "brand_id": 39,
+        "name_en": "xts"
+      },
+      {
+        "name_ar": "ايه اس اكس",
+        "name": "ايه اس اكس",
+        "id": 306,
+        "brand_id": 49,
+        "name_en": "asx"
+      },
+      {
+        "name_ar": "اتراج",
+        "name": "اتراج",
+        "id": 307,
+        "brand_id": 49,
+        "name_en": "attrage"
+      },
+      {
+        "name_ar": "إكليبس",
+        "name": "إكليبس",
+        "id": 308,
+        "brand_id": 49,
+        "name_en": "eclipse"
+      },
+      {
+        "name_ar": "galant",
+        "name": "galant",
+        "id": 309,
+        "brand_id": 49,
+        "name_en": "galant"
+      },
+      {
+        "name_ar": "grandis",
+        "name": "grandis",
+        "id": 310,
+        "brand_id": 49,
+        "name_en": "grandis"
+      },
+      {
+        "name_ar": "l200",
+        "name": "l200",
+        "id": 311,
+        "brand_id": 49,
+        "name_en": "l200"
+      },
+      {
+        "name_ar": "لانسر",
+        "name": "لانسر",
+        "id": 312,
+        "brand_id": 49,
+        "name_en": "lancer"
+      },
+      {
+        "name_ar": "lancer evolution",
+        "name": "lancer evolution",
+        "id": 313,
+        "brand_id": 49,
+        "name_en": "lancer evolution"
+      },
+      {
+        "name_ar": "lancer ex",
+        "name": "lancer ex",
+        "id": 314,
+        "brand_id": 49,
+        "name_en": "lancer ex"
+      },
+      {
+        "name_ar": "lancer fortis",
+        "name": "lancer fortis",
+        "id": 315,
+        "brand_id": 49,
+        "name_en": "lancer fortis"
+      },
+      {
+        "name_ar": "magna",
+        "name": "magna",
+        "id": 316,
+        "brand_id": 49,
+        "name_en": "magna"
+      },
+      {
+        "name_ar": "mirage",
+        "name": "mirage",
+        "id": 317,
+        "brand_id": 49,
+        "name_en": "mirage"
+      },
+      {
+        "name_ar": "مونتيرو سبورت",
+        "name": "مونتيرو سبورت",
+        "id": 318,
+        "brand_id": 49,
+        "name_en": "montero sport"
+      },
+      {
+        "name_ar": "nativa",
+        "name": "nativa",
+        "id": 319,
+        "brand_id": 49,
+        "name_en": "nativa"
+      },
+      {
+        "name_ar": "أوتلاندر",
+        "name": "أوتلاندر",
+        "id": 320,
+        "brand_id": 49,
+        "name_en": "outlander"
+      },
+      {
+        "name_ar": "باجيرو",
+        "name": "باجيرو",
+        "id": 321,
+        "brand_id": 49,
+        "name_en": "pajero"
+      },
+      {
+        "name_ar": "pajero sport",
+        "name": "pajero sport",
+        "id": 322,
+        "brand_id": 49,
+        "name_en": "pajero sport"
+      },
+      {
+        "name_ar": "pajero swb",
+        "name": "pajero swb",
+        "id": 323,
+        "brand_id": 49,
+        "name_en": "pajero swb"
+      },
+      {
+        "name_ar": "2008",
+        "name": "2008",
+        "id": 324,
+        "brand_id": 13,
+        "name_en": "2008"
+      },
+      {
+        "name_ar": "206",
+        "name": "206",
+        "id": 325,
+        "brand_id": 13,
+        "name_en": "206"
+      },
+      {
+        "name_ar": "207",
+        "name": "207",
+        "id": 326,
+        "brand_id": 13,
+        "name_en": "207"
+      },
+      {
+        "name_ar": "208",
+        "name": "208",
+        "id": 327,
+        "brand_id": 13,
+        "name_en": "208"
+      },
+      {
+        "name_ar": "3008",
+        "name": "3008",
+        "id": 328,
+        "brand_id": 13,
+        "name_en": "3008"
+      },
+      {
+        "name_ar": "301",
+        "name": "301",
+        "id": 329,
+        "brand_id": 13,
+        "name_en": "301"
+      },
+      {
+        "name_ar": "307",
+        "name": "307",
+        "id": 330,
+        "brand_id": 13,
+        "name_en": "307"
+      },
+      {
+        "name_ar": "308",
+        "name": "308",
+        "id": 331,
+        "brand_id": 13,
+        "name_en": "308"
+      },
+      {
+        "name_ar": "308 cc",
+        "name": "308 cc",
+        "id": 332,
+        "brand_id": 13,
+        "name_en": "308 cc"
+      },
+      {
+        "name_ar": "407",
+        "name": "407",
+        "id": 333,
+        "brand_id": 13,
+        "name_en": "407"
+      },
+      {
+        "name_ar": "407 coupe",
+        "name": "407 coupe",
+        "id": 334,
+        "brand_id": 13,
+        "name_en": "407 coupe"
+      },
+      {
+        "name_ar": "408",
+        "name": "408",
+        "id": 335,
+        "brand_id": 13,
+        "name_en": "408"
+      },
+      {
+        "name_ar": "5008",
+        "name": "5008",
+        "id": 336,
+        "brand_id": 13,
+        "name_en": "5008"
+      },
+      {
+        "name_ar": "508",
+        "name": "508",
+        "id": 337,
+        "brand_id": 13,
+        "name_en": "508"
+      },
+      {
+        "name_ar": "607",
+        "name": "607",
+        "id": 338,
+        "brand_id": 13,
+        "name_en": "607"
+      },
+      {
+        "name_ar": "boxer",
+        "name": "boxer",
+        "id": 339,
+        "brand_id": 13,
+        "name_en": "boxer"
+      },
+      {
+        "name_ar": "partner",
+        "name": "partner",
+        "id": 340,
+        "brand_id": 13,
+        "name_en": "partner"
+      },
+      {
+        "name_ar": "rcz",
+        "name": "rcz",
+        "id": 341,
+        "brand_id": 13,
+        "name_en": "rcz"
+      },
+      {
+        "name_ar": "alto",
+        "name": "alto",
+        "id": 342,
+        "brand_id": 30,
+        "name_en": "alto"
+      },
+      {
+        "name_ar": "apv",
+        "name": "apv",
+        "id": 343,
+        "brand_id": 30,
+        "name_en": "apv"
+      },
+      {
+        "name_ar": "baleno",
+        "name": "baleno",
+        "id": 344,
+        "brand_id": 30,
+        "name_en": "baleno"
+      },
+      {
+        "name_ar": "carry",
+        "name": "carry",
+        "id": 345,
+        "brand_id": 30,
+        "name_en": "carry"
+      },
+      {
+        "name_ar": "celerio",
+        "name": "celerio",
+        "id": 346,
+        "brand_id": 30,
+        "name_en": "celerio"
+      },
+      {
+        "name_ar": "ciaz",
+        "name": "ciaz",
+        "id": 347,
+        "brand_id": 30,
+        "name_en": "ciaz"
+      },
+      {
+        "name_ar": "ertiga",
+        "name": "ertiga",
+        "id": 348,
+        "brand_id": 30,
+        "name_en": "ertiga"
+      },
+      {
+        "name_ar": "grand vitara",
+        "name": "grand vitara",
+        "id": 349,
+        "brand_id": 30,
+        "name_en": "grand vitara"
+      },
+      {
+        "name_ar": "ignis",
+        "name": "ignis",
+        "id": 350,
+        "brand_id": 30,
+        "name_en": "ignis"
+      },
+      {
+        "name_ar": "jimny",
+        "name": "jimny",
+        "id": 351,
+        "brand_id": 30,
+        "name_en": "jimny"
+      },
+      {
+        "name_ar": "kizashi",
+        "name": "kizashi",
+        "id": 352,
+        "brand_id": 30,
+        "name_en": "kizashi"
+      },
+      {
+        "name_ar": "liana",
+        "name": "liana",
+        "id": 353,
+        "brand_id": 30,
+        "name_en": "liana"
+      },
+      {
+        "name_ar": "swift",
+        "name": "swift",
+        "id": 354,
+        "brand_id": 30,
+        "name_en": "swift"
+      },
+      {
+        "name_ar": "swift dzire",
+        "name": "swift dzire",
+        "id": 355,
+        "brand_id": 30,
+        "name_en": "swift dzire"
+      },
+      {
+        "name_ar": "sx4",
+        "name": "sx4",
+        "id": 356,
+        "brand_id": 30,
+        "name_en": "sx4"
+      },
+      {
+        "name_ar": "vitara",
+        "name": "vitara",
+        "id": 357,
+        "brand_id": 30,
+        "name_en": "vitara"
+      },
+      {
+        "name_ar": "xl7",
+        "name": "xl7",
+        "id": 358,
+        "brand_id": 30,
+        "name_en": "xl7"
+      },
+      {
+        "name_ar": "كادينزا",
+        "name": "كادينزا",
+        "id": 359,
+        "brand_id": 41,
+        "name_en": "cadenza"
+      },
+      {
+        "name_ar": "كارنس",
+        "name": "كارنس",
+        "id": 360,
+        "brand_id": 41,
+        "name_en": "carens"
+      },
+      {
+        "name_ar": "كرنفال",
+        "name": "كرنفال",
+        "id": 361,
+        "brand_id": 41,
+        "name_en": "carnival"
+      },
+      {
+        "name_ar": "سيراتيو",
+        "name": "سيراتيو",
+        "id": 362,
+        "brand_id": 41,
+        "name_en": "cerato"
+      },
+      {
+        "name_ar": "موهافي",
+        "name": "موهافي",
+        "id": 365,
+        "brand_id": 41,
+        "name_en": "mohave"
+      },
+      {
+        "name_ar": "أوبريوس",
+        "name": "أوبريوس",
+        "id": 366,
+        "brand_id": 41,
+        "name_en": "opirus"
+      },
+      {
+        "name_ar": "أوبتيما",
+        "name": "أوبتيما",
+        "id": 367,
+        "brand_id": 41,
+        "name_en": "optima"
+      },
+      {
+        "name_ar": "بيكانتو",
+        "name": "بيكانتو",
+        "id": 368,
+        "brand_id": 41,
+        "name_en": "picanto"
+      },
+      {
+        "name_ar": "كوريس",
+        "name": "كوريس",
+        "id": 369,
+        "brand_id": 41,
+        "name_en": "quoris"
+      },
+      {
+        "name_ar": "ريو",
+        "name": "ريو",
+        "id": 370,
+        "brand_id": 41,
+        "name_en": "rio"
+      },
+      {
+        "name_ar": "ريوهاتش باك",
+        "name": "ريوهاتش باك",
+        "id": 371,
+        "brand_id": 41,
+        "name_en": "rio hatchback"
+      },
+      {
+        "name_ar": "سورينتو",
+        "name": "سورينتو",
+        "id": 372,
+        "brand_id": 41,
+        "name_en": "sorento"
+      },
+      {
+        "name_ar": "سول",
+        "name": "سول",
+        "id": 373,
+        "brand_id": 41,
+        "name_en": "soul"
+      },
+      {
+        "name_ar": "سبورتاج",
+        "name": "سبورتاج",
+        "id": 374,
+        "brand_id": 41,
+        "name_en": "sportage"
+      },
+      {
+        "name_ar": "\tc30\t",
+        "name": "\tc30\t",
+        "id": 375,
+        "brand_id": 35,
+        "name_en": "\tc30\t"
+      },
+      {
+        "name_ar": "\tc70\t",
+        "name": "\tc70\t",
+        "id": 376,
+        "brand_id": 35,
+        "name_en": "\tc70\t"
+      },
+      {
+        "name_ar": "\ts40\t",
+        "name": "\ts40\t",
+        "id": 377,
+        "brand_id": 35,
+        "name_en": "\ts40\t"
+      },
+      {
+        "name_ar": "\ts60\t",
+        "name": "\ts60\t",
+        "id": 378,
+        "brand_id": 35,
+        "name_en": "\ts60\t"
+      },
+      {
+        "name_ar": "\ts60 polestar\t",
+        "name": "\ts60 polestar\t",
+        "id": 379,
+        "brand_id": 35,
+        "name_en": "\ts60 polestar\t"
+      },
+      {
+        "name_ar": "\ts80\t",
+        "name": "\ts80\t",
+        "id": 380,
+        "brand_id": 35,
+        "name_en": "\ts80\t"
+      },
+      {
+        "name_ar": "\ts90\t",
+        "name": "\ts90\t",
+        "id": 381,
+        "brand_id": 35,
+        "name_en": "\ts90\t"
+      },
+      {
+        "name_ar": "\tv40\t",
+        "name": "\tv40\t",
+        "id": 382,
+        "brand_id": 35,
+        "name_en": "\tv40\t"
+      },
+      {
+        "name_ar": "\tv50\t",
+        "name": "\tv50\t",
+        "id": 383,
+        "brand_id": 35,
+        "name_en": "\tv50\t"
+      },
+      {
+        "name_ar": "\tv60\t",
+        "name": "\tv60\t",
+        "id": 384,
+        "brand_id": 35,
+        "name_en": "\tv60\t"
+      },
+      {
+        "name_ar": "\tv60 polestar\t",
+        "name": "\tv60 polestar\t",
+        "id": 385,
+        "brand_id": 35,
+        "name_en": "\tv60 polestar\t"
+      },
+      {
+        "name_ar": "\tv70\t",
+        "name": "\tv70\t",
+        "id": 386,
+        "brand_id": 35,
+        "name_en": "\tv70\t"
+      },
+      {
+        "name_ar": "\tv90\t",
+        "name": "\tv90\t",
+        "id": 387,
+        "brand_id": 35,
+        "name_en": "\tv90\t"
+      },
+      {
+        "name_ar": "\txc60\t",
+        "name": "\txc60\t",
+        "id": 388,
+        "brand_id": 35,
+        "name_en": "\txc60\t"
+      },
+      {
+        "name_ar": "\txc70\t",
+        "name": "\txc70\t",
+        "id": 389,
+        "brand_id": 35,
+        "name_en": "\txc70\t"
+      },
+      {
+        "name_ar": "\txc90\t",
+        "name": "\txc90\t",
+        "id": 390,
+        "brand_id": 35,
+        "name_en": "\txc90\t"
+      },
+      {
+        "name_ar": "360",
+        "name": "360",
+        "id": 391,
+        "brand_id": 38,
+        "name_en": "360"
+      },
+      {
+        "name_ar": "458",
+        "name": "458",
+        "id": 392,
+        "brand_id": 38,
+        "name_en": "458"
+      },
+      {
+        "name_ar": "\t458 spider\t",
+        "name": "\t458 spider\t",
+        "id": 393,
+        "brand_id": 38,
+        "name_en": "\t458 spider\t"
+      },
+      {
+        "name_ar": "\t488 gtb\t",
+        "name": "\t488 gtb\t",
+        "id": 394,
+        "brand_id": 38,
+        "name_en": "\t488 gtb\t"
+      },
+      {
+        "name_ar": "\t488 spider\t",
+        "name": "\t488 spider\t",
+        "id": 395,
+        "brand_id": 38,
+        "name_en": "\t488 spider\t"
+      },
+      {
+        "name_ar": "\t599 gtb fiorano\t",
+        "name": "\t599 gtb fiorano\t",
+        "id": 396,
+        "brand_id": 38,
+        "name_en": "\t599 gtb fiorano\t"
+      },
+      {
+        "name_ar": "\t612 scaglietti\t",
+        "name": "\t612 scaglietti\t",
+        "id": 397,
+        "brand_id": 38,
+        "name_en": "\t612 scaglietti\t"
+      },
+      {
+        "name_ar": "\tcalifornia\t",
+        "name": "\tcalifornia\t",
+        "id": 398,
+        "brand_id": 38,
+        "name_en": "\tcalifornia\t"
+      },
+      {
+        "name_ar": "\tcalifornia t\t",
+        "name": "\tcalifornia t\t",
+        "id": 399,
+        "brand_id": 38,
+        "name_en": "\tcalifornia t\t"
+      },
+      {
+        "name_ar": "\tf12 berlinetta\t",
+        "name": "\tf12 berlinetta\t",
+        "id": 400,
+        "brand_id": 38,
+        "name_en": "\tf12 berlinetta\t"
+      },
+      {
+        "name_ar": "\tf430\t",
+        "name": "\tf430\t",
+        "id": 401,
+        "brand_id": 38,
+        "name_en": "\tf430\t"
+      },
+      {
+        "name_ar": "\tf430 spider\t",
+        "name": "\tf430 spider\t",
+        "id": 402,
+        "brand_id": 38,
+        "name_en": "\tf430 spider\t"
+      },
+      {
+        "name_ar": "\tff\t",
+        "name": "\tff\t",
+        "id": 403,
+        "brand_id": 38,
+        "name_en": "\tff\t"
+      },
+      {
+        "name_ar": "\tgtc4 lusso\t",
+        "name": "\tgtc4 lusso\t",
+        "id": 404,
+        "brand_id": 38,
+        "name_en": "\tgtc4 lusso\t"
+      },
+      {
+        "name_ar": "\tlaferrari\t",
+        "name": "\tlaferrari\t",
+        "id": 405,
+        "brand_id": 38,
+        "name_en": "\tlaferrari\t"
+      },
+      {
+        "name_ar": "\tأكورد",
+        "name": "\tأكورد",
+        "id": 406,
+        "brand_id": 53,
+        "name_en": "\taccord\t"
+      },
+      {
+        "name_ar": "أكورد كوبيه",
+        "name": "أكورد كوبيه",
+        "id": 407,
+        "brand_id": 53,
+        "name_en": "\taccord coupe\t"
+      },
+      {
+        "name_ar": "سيتي",
+        "name": "سيتي",
+        "id": 409,
+        "brand_id": 53,
+        "name_en": "\tcity\t"
+      },
+      {
+        "name_ar": "\tسيفيك",
+        "name": "\tسيفيك",
+        "id": 410,
+        "brand_id": 53,
+        "name_en": "\tcivic\t"
+      },
+      {
+        "name_ar": "سي ار في",
+        "name": "سي ار في",
+        "id": 412,
+        "brand_id": 53,
+        "name_en": "\tcr v\t"
+      },
+      {
+        "name_ar": "سي ار اكس",
+        "name": "سي ار اكس",
+        "id": 413,
+        "brand_id": 53,
+        "name_en": "\tcrx\t"
+      },
+      {
+        "name_ar": "جاز",
+        "name": "جاز",
+        "id": 414,
+        "brand_id": 53,
+        "name_en": "\tjazz\t"
+      },
+      {
+        "name_ar": "ليجند",
+        "name": "ليجند",
+        "id": 415,
+        "brand_id": 53,
+        "name_en": "\tlegend\t"
+      },
+      {
+        "name_ar": "ام ار في",
+        "name": "ام ار في",
+        "id": 416,
+        "brand_id": 53,
+        "name_en": "\tmr v\t"
+      },
+      {
+        "name_ar": "أوديسي",
+        "name": "أوديسي",
+        "id": 417,
+        "brand_id": 53,
+        "name_en": "\todyssey\t"
+      },
+      {
+        "name_ar": "\tبايلوت",
+        "name": "\tبايلوت",
+        "id": 419,
+        "brand_id": 53,
+        "name_en": "\tpilot\t"
+      },
+      {
+        "name_ar": "اس 2000",
+        "name": "اس 2000",
+        "id": 420,
+        "brand_id": 53,
+        "name_en": "\ts2000\t"
+      },
+      {
+        "name_ar": "CT",
+        "name": "CT",
+        "id": 421,
+        "brand_id": 44,
+        "name_en": "CT"
+      },
+      {
+        "name_ar": "ES",
+        "name": "ES",
+        "id": 422,
+        "brand_id": 44,
+        "name_en": "ES"
+      },
+      {
+        "name_ar": "GS",
+        "name": "GS",
+        "id": 423,
+        "brand_id": 44,
+        "name_en": "GS"
+      },
+      {
+        "name_ar": "GX",
+        "name": "GX",
+        "id": 424,
+        "brand_id": 44,
+        "name_en": "GX"
+      },
+      {
+        "name_ar": "IS",
+        "name": "IS",
+        "id": 425,
+        "brand_id": 44,
+        "name_en": "IS"
+      },
+      {
+        "name_ar": "IS C",
+        "name": "IS C",
+        "id": 426,
+        "brand_id": 44,
+        "name_en": "IS C"
+      },
+      {
+        "name_ar": "IS F",
+        "name": "IS F",
+        "id": 427,
+        "brand_id": 44,
+        "name_en": "IS F"
+      },
+      {
+        "name_ar": "LFA",
+        "name": "LFA",
+        "id": 428,
+        "brand_id": 44,
+        "name_en": "LFA"
+      },
+      {
+        "name_ar": "LS",
+        "name": "LS",
+        "id": 429,
+        "brand_id": 44,
+        "name_en": "LS"
+      },
+      {
+        "name_ar": "LX",
+        "name": "LX",
+        "id": 430,
+        "brand_id": 44,
+        "name_en": "LX"
+      },
+      {
+        "name_ar": "NX",
+        "name": "NX",
+        "id": 431,
+        "brand_id": 44,
+        "name_en": "NX"
+      },
+      {
+        "name_ar": "RC",
+        "name": "RC",
+        "id": 432,
+        "brand_id": 44,
+        "name_en": "RC"
+      },
+      {
+        "name_ar": "RC F",
+        "name": "RC F",
+        "id": 433,
+        "brand_id": 44,
+        "name_en": "RC F"
+      },
+      {
+        "name_ar": "RX",
+        "name": "RX",
+        "id": 434,
+        "brand_id": 44,
+        "name_en": "RX"
+      },
+      {
+        "name_ar": "\tdb11\t",
+        "name": "\tdb11\t",
+        "id": 436,
+        "brand_id": 3,
+        "name_en": "\tdb11\t"
+      },
+      {
+        "name_ar": "db77",
+        "name": "db77",
+        "id": 437,
+        "brand_id": 3,
+        "name_en": "db77"
+      },
+      {
+        "name_ar": "db99",
+        "name": "db99",
+        "id": 438,
+        "brand_id": 3,
+        "name_en": "db99"
+      },
+      {
+        "name_ar": "\tdb9 volante\t",
+        "name": "\tdb9 volante\t",
+        "id": 439,
+        "brand_id": 3,
+        "name_en": "\tdb9 volante\t"
+      },
+      {
+        "name_ar": "\tdbs\t",
+        "name": "\tdbs\t",
+        "id": 440,
+        "brand_id": 3,
+        "name_en": "\tdbs\t"
+      },
+      {
+        "name_ar": "\tone 77\t",
+        "name": "\tone 77\t",
+        "id": 441,
+        "brand_id": 3,
+        "name_en": "\tone 77\t"
+      },
+      {
+        "name_ar": "\trapide\t",
+        "name": "\trapide\t",
+        "id": 442,
+        "brand_id": 3,
+        "name_en": "\trapide\t"
+      },
+      {
+        "name_ar": "\tv12 vantage\t",
+        "name": "\tv12 vantage\t",
+        "id": 443,
+        "brand_id": 3,
+        "name_en": "\tv12 vantage\t"
+      },
+      {
+        "name_ar": "\tv12 vantage roadster\t",
+        "name": "\tv12 vantage roadster\t",
+        "id": 444,
+        "brand_id": 3,
+        "name_en": "\tv12 vantage roadster\t"
+      },
+      {
+        "name_ar": "\tv8 vantage\t",
+        "name": "\tv8 vantage\t",
+        "id": 445,
+        "brand_id": 3,
+        "name_en": "\tv8 vantage\t"
+      },
+      {
+        "name_ar": "\tv8 vantage roadster\t",
+        "name": "\tv8 vantage roadster\t",
+        "id": 446,
+        "brand_id": 3,
+        "name_en": "\tv8 vantage roadster\t"
+      },
+      {
+        "name_ar": "\tvanquish\t",
+        "name": "\tvanquish\t",
+        "id": 447,
+        "brand_id": 3,
+        "name_en": "\tvanquish\t"
+      },
+      {
+        "name_ar": "\tzagato\t",
+        "name": "\tzagato\t",
+        "id": 448,
+        "brand_id": 3,
+        "name_en": "\tzagato\t"
+      },
+      {
+        "name_ar": "\tavenger\t",
+        "name": "\tavenger\t",
+        "id": 449,
+        "brand_id": 22,
+        "name_en": "\tavenger\t"
+      },
+      {
+        "name_ar": "\tcaliber\t",
+        "name": "\tcaliber\t",
+        "id": 450,
+        "brand_id": 22,
+        "name_en": "\tcaliber\t"
+      },
+      {
+        "name_ar": "شالنجر",
+        "name": "شالنجر",
+        "id": 451,
+        "brand_id": 22,
+        "name_en": "\tchallenger\t"
+      },
+      {
+        "name_ar": "\tchallenger srt\t",
+        "name": "\tchallenger srt\t",
+        "id": 452,
+        "brand_id": 22,
+        "name_en": "\tchallenger srt\t"
+      },
+      {
+        "name_ar": "شارجر",
+        "name": "شارجر",
+        "id": 453,
+        "brand_id": 22,
+        "name_en": "\tcharger\t"
+      },
+      {
+        "name_ar": "\tcharger srt\t",
+        "name": "\tcharger srt\t",
+        "id": 454,
+        "brand_id": 22,
+        "name_en": "\tcharger srt\t"
+      },
+      {
+        "name_ar": "\tdakota\t",
+        "name": "\tdakota\t",
+        "id": 455,
+        "brand_id": 22,
+        "name_en": "\tdakota\t"
+      },
+      {
+        "name_ar": "\tdart\t",
+        "name": "\tdart\t",
+        "id": 456,
+        "brand_id": 22,
+        "name_en": "\tdart\t"
+      },
+      {
+        "name_ar": "دورانجو",
+        "name": "دورانجو",
+        "id": 457,
+        "brand_id": 22,
+        "name_en": "\tdurango\t"
+      },
+      {
+        "name_ar": "\tneon\t",
+        "name": "\tneon\t",
+        "id": 458,
+        "brand_id": 22,
+        "name_en": "\tneon\t"
+      },
+      {
+        "name_ar": "نايترو",
+        "name": "نايترو",
+        "id": 459,
+        "brand_id": 22,
+        "name_en": "\tnitro\t"
+      },
+      {
+        "name_ar": "\tram\t",
+        "name": "\tram\t",
+        "id": 460,
+        "brand_id": 22,
+        "name_en": "\tram\t"
+      },
+      {
+        "name_ar": "\tviper\t",
+        "name": "\tviper\t",
+        "id": 461,
+        "brand_id": 22,
+        "name_en": "\tviper\t"
+      },
+      {
+        "name_ar": "\tf pace\t",
+        "name": "\tf pace\t",
+        "id": 462,
+        "brand_id": 18,
+        "name_en": "\tf pace\t"
+      },
+      {
+        "name_ar": "\tf type\t",
+        "name": "\tf type\t",
+        "id": 463,
+        "brand_id": 18,
+        "name_en": "\tf type\t"
+      },
+      {
+        "name_ar": "\tf type coupe\t",
+        "name": "\tf type coupe\t",
+        "id": 464,
+        "brand_id": 18,
+        "name_en": "\tf type coupe\t"
+      },
+      {
+        "name_ar": "\tf type svr convertible\t",
+        "name": "\tf type svr convertible\t",
+        "id": 465,
+        "brand_id": 18,
+        "name_en": "\tf type svr convertible\t"
+      },
+      {
+        "name_ar": "\tf type svr coupe\t",
+        "name": "\tf type svr coupe\t",
+        "id": 466,
+        "brand_id": 18,
+        "name_en": "\tf type svr coupe\t"
+      },
+      {
+        "name_ar": "\ts type\t",
+        "name": "\ts type\t",
+        "id": 467,
+        "brand_id": 18,
+        "name_en": "\ts type\t"
+      },
+      {
+        "name_ar": "\tx type\t",
+        "name": "\tx type\t",
+        "id": 468,
+        "brand_id": 18,
+        "name_en": "\tx type\t"
+      },
+      {
+        "name_ar": "\txe\t",
+        "name": "\txe\t",
+        "id": 469,
+        "brand_id": 18,
+        "name_en": "\txe\t"
+      },
+      {
+        "name_ar": "\txf\t",
+        "name": "\txf\t",
+        "id": 470,
+        "brand_id": 18,
+        "name_en": "\txf\t"
+      },
+      {
+        "name_ar": "\txfr s\t",
+        "name": "\txfr s\t",
+        "id": 471,
+        "brand_id": 18,
+        "name_en": "\txfr s\t"
+      },
+      {
+        "name_ar": "\txj\t",
+        "name": "\txj\t",
+        "id": 472,
+        "brand_id": 18,
+        "name_en": "\txj\t"
+      },
+      {
+        "name_ar": "\txk\t",
+        "name": "\txk\t",
+        "id": 473,
+        "brand_id": 18,
+        "name_en": "\txk\t"
+      },
+      {
+        "name_ar": "\txk convertible\t",
+        "name": "\txk convertible\t",
+        "id": 474,
+        "brand_id": 18,
+        "name_en": "\txk convertible\t"
+      },
+      {
+        "name_ar": "\tc elysee\t",
+        "name": "\tc elysee\t",
+        "id": 475,
+        "brand_id": 32,
+        "name_en": "\tc elysee\t"
+      },
+      {
+        "name_ar": "\tc2\t",
+        "name": "\tc2\t",
+        "id": 476,
+        "brand_id": 32,
+        "name_en": "\tc2\t"
+      },
+      {
+        "name_ar": "\tc3\t",
+        "name": "\tc3\t",
+        "id": 477,
+        "brand_id": 32,
+        "name_en": "\tc3\t"
+      },
+      {
+        "name_ar": "\tc4\t",
+        "name": "\tc4\t",
+        "id": 478,
+        "brand_id": 32,
+        "name_en": "\tc4\t"
+      },
+      {
+        "name_ar": "\tc4 picasso\t",
+        "name": "\tc4 picasso\t",
+        "id": 479,
+        "brand_id": 32,
+        "name_en": "\tc4 picasso\t"
+      },
+      {
+        "name_ar": "\tc5\t",
+        "name": "\tc5\t",
+        "id": 480,
+        "brand_id": 32,
+        "name_en": "\tc5\t"
+      },
+      {
+        "name_ar": "\tc8\t",
+        "name": "\tc8\t",
+        "id": 481,
+        "brand_id": 32,
+        "name_en": "\tc8\t"
+      },
+      {
+        "name_ar": "\tds3\t",
+        "name": "\tds3\t",
+        "id": 482,
+        "brand_id": 32,
+        "name_en": "\tds3\t"
+      },
+      {
+        "name_ar": "\tds4\t",
+        "name": "\tds4\t",
+        "id": 483,
+        "brand_id": 32,
+        "name_en": "\tds4\t"
+      },
+      {
+        "name_ar": "\tds5\t",
+        "name": "\tds5\t",
+        "id": 484,
+        "brand_id": 32,
+        "name_en": "\tds5\t"
+      },
+      {
+        "name_ar": "\tsaxo\t",
+        "name": "\tsaxo\t",
+        "id": 485,
+        "brand_id": 32,
+        "name_en": "\tsaxo\t"
+      },
+      {
+        "name_ar": "\txsara picasso\t",
+        "name": "\txsara picasso\t",
+        "id": 486,
+        "brand_id": 32,
+        "name_en": "\txsara picasso\t"
+      },
+      {
+        "name_ar": "\tdefender\t",
+        "name": "\tdefender\t",
+        "id": 487,
+        "brand_id": 43,
+        "name_en": "\tdefender\t"
+      },
+      {
+        "name_ar": "\tdiscovery sport\t",
+        "name": "\tdiscovery sport\t",
+        "id": 488,
+        "brand_id": 43,
+        "name_en": "\tdiscovery sport\t"
+      },
+      {
+        "name_ar": "\tfreelander\t",
+        "name": "\tfreelander\t",
+        "id": 489,
+        "brand_id": 43,
+        "name_en": "\tfreelander\t"
+      },
+      {
+        "name_ar": "\tlr2\t",
+        "name": "\tlr2\t",
+        "id": 490,
+        "brand_id": 43,
+        "name_en": "\tlr2\t"
+      },
+      {
+        "name_ar": "\tlr3\t",
+        "name": "\tlr3\t",
+        "id": 491,
+        "brand_id": 43,
+        "name_en": "\tlr3\t"
+      },
+      {
+        "name_ar": "\tlr4\t",
+        "name": "\tlr4\t",
+        "id": 492,
+        "brand_id": 43,
+        "name_en": "\tlr4\t"
+      },
+      {
+        "name_ar": "\trange rover\t",
+        "name": "\trange rover\t",
+        "id": 493,
+        "brand_id": 43,
+        "name_en": "\trange rover\t"
+      },
+      {
+        "name_ar": "\trange rover evoque\t",
+        "name": "\trange rover evoque\t",
+        "id": 494,
+        "brand_id": 43,
+        "name_en": "\trange rover evoque\t"
+      },
+      {
+        "name_ar": "\trange rover evoque convertible\t",
+        "name": "\trange rover evoque convertible\t",
+        "id": 495,
+        "brand_id": 43,
+        "name_en": "\trange rover evoque convertible\t"
+      },
+      {
+        "name_ar": "\trange rover evoque coupe\t",
+        "name": "\trange rover evoque coupe\t",
+        "id": 496,
+        "brand_id": 43,
+        "name_en": "\trange rover evoque coupe\t"
+      },
+      {
+        "name_ar": "\trange rover sport\t",
+        "name": "\trange rover sport\t",
+        "id": 497,
+        "brand_id": 43,
+        "name_en": "\trange rover sport\t"
+      },
+      {
+        "name_ar": "\trange rover sport svr\t",
+        "name": "\trange rover sport svr\t",
+        "id": 498,
+        "brand_id": 43,
+        "name_en": "\trange rover sport svr\t"
+      },
+      {
+        "name_ar": "\tadam\t",
+        "name": "\tadam\t",
+        "id": 499,
+        "brand_id": 6,
+        "name_en": "\tadam\t"
+      },
+      {
+        "name_ar": "\tantara\t",
+        "name": "\tantara\t",
+        "id": 500,
+        "brand_id": 6,
+        "name_en": "\tantara\t"
+      },
+      {
+        "name_ar": "\tastra\t",
+        "name": "\tastra\t",
+        "id": 501,
+        "brand_id": 6,
+        "name_en": "\tastra\t"
+      },
+      {
+        "name_ar": "\tastra opc\t",
+        "name": "\tastra opc\t",
+        "id": 502,
+        "brand_id": 6,
+        "name_en": "\tastra opc\t"
+      },
+      {
+        "name_ar": "\tcorsa\t",
+        "name": "\tcorsa\t",
+        "id": 503,
+        "brand_id": 6,
+        "name_en": "\tcorsa\t"
+      },
+      {
+        "name_ar": "\tcorsa opc\t",
+        "name": "\tcorsa opc\t",
+        "id": 504,
+        "brand_id": 6,
+        "name_en": "\tcorsa opc\t"
+      },
+      {
+        "name_ar": "\tinsignia\t",
+        "name": "\tinsignia\t",
+        "id": 505,
+        "brand_id": 6,
+        "name_en": "\tinsignia\t"
+      },
+      {
+        "name_ar": "\tinsignia opc\t",
+        "name": "\tinsignia opc\t",
+        "id": 506,
+        "brand_id": 6,
+        "name_en": "\tinsignia opc\t"
+      },
+      {
+        "name_ar": "\tmeriva\t",
+        "name": "\tmeriva\t",
+        "id": 507,
+        "brand_id": 6,
+        "name_en": "\tmeriva\t"
+      },
+      {
+        "name_ar": "\tmokka\t",
+        "name": "\tmokka\t",
+        "id": 508,
+        "brand_id": 6,
+        "name_en": "\tmokka\t"
+      },
+      {
+        "name_ar": "\tvectra\t",
+        "name": "\tvectra\t",
+        "id": 509,
+        "brand_id": 6,
+        "name_en": "\tvectra\t"
+      },
+      {
+        "name_ar": "\tarnage\t",
+        "name": "\tarnage\t",
+        "id": 510,
+        "brand_id": 9,
+        "name_en": "\tarnage\t"
+      },
+      {
+        "name_ar": "\tazure\t",
+        "name": "\tazure\t",
+        "id": 511,
+        "brand_id": 9,
+        "name_en": "\tazure\t"
+      },
+      {
+        "name_ar": "\tbentayga\t",
+        "name": "\tbentayga\t",
+        "id": 512,
+        "brand_id": 9,
+        "name_en": "\tbentayga\t"
+      },
+      {
+        "name_ar": "\tbrooklands\t",
+        "name": "\tbrooklands\t",
+        "id": 513,
+        "brand_id": 9,
+        "name_en": "\tbrooklands\t"
+      },
+      {
+        "name_ar": "كونتنتال",
+        "name": "كونتنتال",
+        "id": 514,
+        "brand_id": 9,
+        "name_en": "\tcontinental\t"
+      },
+      {
+        "name_ar": "\tcontinental flying spur\t",
+        "name": "\tcontinental flying spur\t",
+        "id": 515,
+        "brand_id": 9,
+        "name_en": "\tcontinental flying spur\t"
+      },
+      {
+        "name_ar": "\tcontinental gt\t",
+        "name": "\tcontinental gt\t",
+        "id": 516,
+        "brand_id": 9,
+        "name_en": "\tcontinental gt\t"
+      },
+      {
+        "name_ar": "\tcontinental gtc\t",
+        "name": "\tcontinental gtc\t",
+        "id": 517,
+        "brand_id": 9,
+        "name_en": "\tcontinental gtc\t"
+      },
+      {
+        "name_ar": "\tflying spur\t",
+        "name": "\tflying spur\t",
+        "id": 518,
+        "brand_id": 9,
+        "name_en": "\tflying spur\t"
+      },
+      {
+        "name_ar": "\tmulsanne\t",
+        "name": "\tmulsanne\t",
+        "id": 519,
+        "brand_id": 9,
+        "name_en": "\tmulsanne\t"
+      },
+      {
+        "name_ar": "\ta11 windcloud\t",
+        "name": "\ta11 windcloud\t",
+        "id": 520,
+        "brand_id": 16,
+        "name_en": "\ta11 windcloud\t"
+      },
+      {
+        "name_ar": "\tarrizo 5\t",
+        "name": "\tarrizo 5\t",
+        "id": 521,
+        "brand_id": 16,
+        "name_en": "\tarrizo 5\t"
+      },
+      {
+        "name_ar": "\tarrizo 7\t",
+        "name": "\tarrizo 7\t",
+        "id": 522,
+        "brand_id": 16,
+        "name_en": "\tarrizo 7\t"
+      },
+      {
+        "name_ar": "\tb11 oriental son\t",
+        "name": "\tb11 oriental son\t",
+        "id": 523,
+        "brand_id": 16,
+        "name_en": "\tb11 oriental son\t"
+      },
+      {
+        "name_ar": "\te5\t",
+        "name": "\te5\t",
+        "id": 524,
+        "brand_id": 16,
+        "name_en": "\te5\t"
+      },
+      {
+        "name_ar": "\te8\t",
+        "name": "\te8\t",
+        "id": 525,
+        "brand_id": 16,
+        "name_en": "\te8\t"
+      },
+      {
+        "name_ar": "\ts11 qq\t",
+        "name": "\ts11 qq\t",
+        "id": 526,
+        "brand_id": 16,
+        "name_en": "\ts11 qq\t"
+      },
+      {
+        "name_ar": "\tt11 tiggo\t",
+        "name": "\tt11 tiggo\t",
+        "id": 527,
+        "brand_id": 16,
+        "name_en": "\tt11 tiggo\t"
+      },
+      {
+        "name_ar": "\ttiggo 5\t",
+        "name": "\ttiggo 5\t",
+        "id": 528,
+        "brand_id": 16,
+        "name_en": "\ttiggo 5\t"
+      },
+      {
+        "name_ar": "\tv5 crossover\t",
+        "name": "\tv5 crossover\t",
+        "id": 529,
+        "brand_id": 16,
+        "name_en": "\tv5 crossover\t"
+      },
+      {
+        "name_ar": "\tck\t",
+        "name": "\tck\t",
+        "id": 530,
+        "brand_id": 20,
+        "name_en": "\tck\t"
+      },
+      {
+        "name_ar": "\temgrand 7\t",
+        "name": "\temgrand 7\t",
+        "id": 531,
+        "brand_id": 20,
+        "name_en": "\temgrand 7\t"
+      },
+      {
+        "name_ar": "\temgrand 8\t",
+        "name": "\temgrand 8\t",
+        "id": 532,
+        "brand_id": 20,
+        "name_en": "\temgrand 8\t"
+      },
+      {
+        "name_ar": "\temgrand gt\t",
+        "name": "\temgrand gt\t",
+        "id": 533,
+        "brand_id": 20,
+        "name_en": "\temgrand gt\t"
+      },
+      {
+        "name_ar": "\temgrand x7\t",
+        "name": "\temgrand x7\t",
+        "id": 534,
+        "brand_id": 20,
+        "name_en": "\temgrand x7\t"
+      },
+      {
+        "name_ar": "\temgrand x7 sport\t",
+        "name": "\temgrand x7 sport\t",
+        "id": 535,
+        "brand_id": 20,
+        "name_en": "\temgrand x7 sport\t"
+      },
+      {
+        "name_ar": "\tgc2\t",
+        "name": "\tgc2\t",
+        "id": 536,
+        "brand_id": 20,
+        "name_en": "\tgc2\t"
+      },
+      {
+        "name_ar": "\tgc6\t",
+        "name": "\tgc6\t",
+        "id": 537,
+        "brand_id": 20,
+        "name_en": "\tgc6\t"
+      },
+      {
+        "name_ar": "\tgc7\t",
+        "name": "\tgc7\t",
+        "id": 538,
+        "brand_id": 20,
+        "name_en": "\tgc7\t"
+      },
+      {
+        "name_ar": "\tgx2\t",
+        "name": "\tgx2\t",
+        "id": 539,
+        "brand_id": 20,
+        "name_en": "\tgx2\t"
+      },
+      {
+        "name_ar": "2",
+        "name": "2",
+        "id": 540,
+        "brand_id": 46,
+        "name_en": "2"
+      },
+      {
+        "name_ar": "3",
+        "name": "3",
+        "id": 542,
+        "brand_id": 46,
+        "name_en": "3"
+      },
+      {
+        "name_ar": "6",
+        "name": "6",
+        "id": 543,
+        "brand_id": 46,
+        "name_en": "6"
+      },
+      {
+        "name_ar": "6 ألترا",
+        "name": "6 ألترا",
+        "id": 544,
+        "brand_id": 46,
+        "name_en": "\t6 ultra\t"
+      },
+      {
+        "name_ar": "سي اكس 5",
+        "name": "سي اكس 5",
+        "id": 546,
+        "brand_id": 46,
+        "name_en": "\tcx 5\t"
+      },
+      {
+        "name_ar": "سي اكس 7",
+        "name": "سي اكس 7",
+        "id": 547,
+        "brand_id": 46,
+        "name_en": "\tcx 7\t"
+      },
+      {
+        "name_ar": "سي اكس 9",
+        "name": "سي اكس 9",
+        "id": 548,
+        "brand_id": 46,
+        "name_en": "\tcx 9\t"
+      },
+      {
+        "name_ar": "ام اكس 5",
+        "name": "ام اكس 5",
+        "id": 549,
+        "brand_id": 46,
+        "name_en": "\tmx 5\t"
+      },
+      {
+        "name_ar": "500",
+        "name": "500",
+        "id": 550,
+        "brand_id": 37,
+        "name_en": "500"
+      },
+      {
+        "name_ar": "\t500l\t",
+        "name": "\t500l\t",
+        "id": 551,
+        "brand_id": 37,
+        "name_en": "\t500l\t"
+      },
+      {
+        "name_ar": "\t500x\t",
+        "name": "\t500x\t",
+        "id": 552,
+        "brand_id": 37,
+        "name_en": "\t500x\t"
+      },
+      {
+        "name_ar": "\tbravo\t",
+        "name": "\tbravo\t",
+        "id": 553,
+        "brand_id": 37,
+        "name_en": "\tbravo\t"
+      },
+      {
+        "name_ar": "\tducato\t",
+        "name": "\tducato\t",
+        "id": 554,
+        "brand_id": 37,
+        "name_en": "\tducato\t"
+      },
+      {
+        "name_ar": "\tfiorino\t",
+        "name": "\tfiorino\t",
+        "id": 555,
+        "brand_id": 37,
+        "name_en": "\tfiorino\t"
+      },
+      {
+        "name_ar": "\tfullback\t",
+        "name": "\tfullback\t",
+        "id": 556,
+        "brand_id": 37,
+        "name_en": "\tfullback\t"
+      },
+      {
+        "name_ar": "\tlinea\t",
+        "name": "\tlinea\t",
+        "id": 557,
+        "brand_id": 37,
+        "name_en": "\tlinea\t"
+      },
+      {
+        "name_ar": "\tpunto\t",
+        "name": "\tpunto\t",
+        "id": 558,
+        "brand_id": 37,
+        "name_en": "\tpunto\t"
+      },
+      {
+        "name_ar": "\tbrz\t",
+        "name": "\tbrz\t",
+        "id": 559,
+        "brand_id": 29,
+        "name_en": "\tbrz\t"
+      },
+      {
+        "name_ar": "\tforester\t",
+        "name": "\tforester\t",
+        "id": 560,
+        "brand_id": 29,
+        "name_en": "\tforester\t"
+      },
+      {
+        "name_ar": "\timpreza\t",
+        "name": "\timpreza\t",
+        "id": 561,
+        "brand_id": 29,
+        "name_en": "\timpreza\t"
+      },
+      {
+        "name_ar": "\timpreza wrx\t",
+        "name": "\timpreza wrx\t",
+        "id": 562,
+        "brand_id": 29,
+        "name_en": "\timpreza wrx\t"
+      },
+      {
+        "name_ar": "\timpreza wrx sti\t",
+        "name": "\timpreza wrx sti\t",
+        "id": 563,
+        "brand_id": 29,
+        "name_en": "\timpreza wrx sti\t"
+      },
+      {
+        "name_ar": "\tlegacy\t",
+        "name": "\tlegacy\t",
+        "id": 564,
+        "brand_id": 29,
+        "name_en": "\tlegacy\t"
+      },
+      {
+        "name_ar": "\toutback\t",
+        "name": "\toutback\t",
+        "id": 565,
+        "brand_id": 29,
+        "name_en": "\toutback\t"
+      },
+      {
+        "name_ar": "\ttribeca\t",
+        "name": "\ttribeca\t",
+        "id": 566,
+        "brand_id": 29,
+        "name_en": "\ttribeca\t"
+      },
+      {
+        "name_ar": "\txv\t",
+        "name": "\txv\t",
+        "id": 567,
+        "brand_id": 29,
+        "name_en": "\txv\t"
+      },
+      {
+        "name_ar": "شيروكي",
+        "name": "شيروكي",
+        "id": 568,
+        "brand_id": 19,
+        "name_en": "\tcherokee\t"
+      },
+      {
+        "name_ar": "\tcommander\t",
+        "name": "\tcommander\t",
+        "id": 569,
+        "brand_id": 19,
+        "name_en": "\tcommander\t"
+      },
+      {
+        "name_ar": "كومباس",
+        "name": "كومباس",
+        "id": 570,
+        "brand_id": 19,
+        "name_en": "\tcompass\t"
+      },
+      {
+        "name_ar": "جراند شيروكي",
+        "name": "جراند شيروكي",
+        "id": 571,
+        "brand_id": 19,
+        "name_en": "\tgrand cherokee\t"
+      },
+      {
+        "name_ar": "\tpatriot\t",
+        "name": "\tpatriot\t",
+        "id": 572,
+        "brand_id": 19,
+        "name_en": "\tpatriot\t"
+      },
+      {
+        "name_ar": "رينجيد",
+        "name": "رينجيد",
+        "id": 573,
+        "brand_id": 19,
+        "name_en": "\trenegade\t"
+      },
+      {
+        "name_ar": "رانجلر",
+        "name": "رانجلر",
+        "id": 574,
+        "brand_id": 19,
+        "name_en": "\twrangler\t"
+      },
+      {
+        "name_ar": "\twrangler unlimited\t",
+        "name": "\twrangler unlimited\t",
+        "id": 575,
+        "brand_id": 19,
+        "name_en": "\twrangler unlimited\t"
+      },
+      {
+        "name_ar": "3",
+        "name": "3",
+        "id": 576,
+        "brand_id": 2,
+        "name_en": "3"
+      },
+      {
+        "name_ar": "350",
+        "name": "350",
+        "id": 577,
+        "brand_id": 2,
+        "name_en": "350"
+      },
+      {
+        "name_ar": "360",
+        "name": "360",
+        "id": 578,
+        "brand_id": 2,
+        "name_en": "360"
+      },
+      {
+        "name_ar": "5",
+        "name": "5",
+        "id": 579,
+        "brand_id": 2,
+        "name_en": "5"
+      },
+      {
+        "name_ar": "550",
+        "name": "550",
+        "id": 580,
+        "brand_id": 2,
+        "name_en": "550"
+      },
+      {
+        "name_ar": "6",
+        "name": "6",
+        "id": 581,
+        "brand_id": 2,
+        "name_en": "6"
+      },
+      {
+        "name_ar": "750",
+        "name": "750",
+        "id": 582,
+        "brand_id": 2,
+        "name_en": "750"
+      },
+      {
+        "name_ar": "\tgs\t",
+        "name": "\tgs\t",
+        "id": 583,
+        "brand_id": 2,
+        "name_en": "\tgs\t"
+      },
+      {
+        "name_ar": "911",
+        "name": "911",
+        "id": 584,
+        "brand_id": 11,
+        "name_en": "911"
+      },
+      {
+        "name_ar": "\t911 cabriolet\t",
+        "name": "\t911 cabriolet\t",
+        "id": 585,
+        "brand_id": 11,
+        "name_en": "\t911 cabriolet\t"
+      },
+      {
+        "name_ar": "سبايدر 918",
+        "name": "سبايدر 918",
+        "id": 586,
+        "brand_id": 11,
+        "name_en": "\t918 spyder\t"
+      },
+      {
+        "name_ar": "بوكستر",
+        "name": "بوكستر",
+        "id": 587,
+        "brand_id": 11,
+        "name_en": "\tboxster\t"
+      },
+      {
+        "name_ar": "\tكاين",
+        "name": "\tكاين",
+        "id": 588,
+        "brand_id": 11,
+        "name_en": "\tcayenne\t"
+      },
+      {
+        "name_ar": "كايمن",
+        "name": "كايمن",
+        "id": 589,
+        "brand_id": 11,
+        "name_en": "\tcayman\t"
+      },
+      {
+        "name_ar": "ماكان",
+        "name": "ماكان",
+        "id": 590,
+        "brand_id": 11,
+        "name_en": "\tmacan\t"
+      },
+      {
+        "name_ar": "باناميرا",
+        "name": "باناميرا",
+        "id": 591,
+        "brand_id": 11,
+        "name_en": "\tpanamera\t"
+      },
+      {
+        "name_ar": "200",
+        "name": "200",
+        "id": 592,
+        "brand_id": 40,
+        "name_en": "200"
+      },
+      {
+        "name_ar": "\t300 srt\t",
+        "name": "\t300 srt\t",
+        "id": 593,
+        "brand_id": 40,
+        "name_en": "\t300 srt\t"
+      },
+      {
+        "name_ar": "300",
+        "name": "300",
+        "id": 594,
+        "brand_id": 40,
+        "name_en": "300"
+      },
+      {
+        "name_ar": "\tcrossfire\t",
+        "name": "\tcrossfire\t",
+        "id": 595,
+        "brand_id": 40,
+        "name_en": "\tcrossfire\t"
+      },
+      {
+        "name_ar": "\tgrand voyager\t",
+        "name": "\tgrand voyager\t",
+        "id": 596,
+        "brand_id": 40,
+        "name_en": "\tgrand voyager\t"
+      },
+      {
+        "name_ar": "\tpt cruiser\t",
+        "name": "\tpt cruiser\t",
+        "id": 597,
+        "brand_id": 40,
+        "name_en": "\tpt cruiser\t"
+      },
+      {
+        "name_ar": "\tsebring\t",
+        "name": "\tsebring\t",
+        "id": 598,
+        "brand_id": 40,
+        "name_en": "\tsebring\t"
+      },
+      {
+        "name_ar": "\tcharade\t",
+        "name": "\tcharade\t",
+        "id": 599,
+        "brand_id": 23,
+        "name_en": "\tcharade\t"
+      },
+      {
+        "name_ar": "\tgran max pickup\t",
+        "name": "\tgran max pickup\t",
+        "id": 600,
+        "brand_id": 23,
+        "name_en": "\tgran max pickup\t"
+      },
+      {
+        "name_ar": "\tgran max van\t",
+        "name": "\tgran max van\t",
+        "id": 601,
+        "brand_id": 23,
+        "name_en": "\tgran max van\t"
+      },
+      {
+        "name_ar": "\tmateria\t",
+        "name": "\tmateria\t",
+        "id": 602,
+        "brand_id": 23,
+        "name_en": "\tmateria\t"
+      },
+      {
+        "name_ar": "\tsirion\t",
+        "name": "\tsirion\t",
+        "id": 603,
+        "brand_id": 23,
+        "name_en": "\tsirion\t"
+      },
+      {
+        "name_ar": "\tterios\t",
+        "name": "\tterios\t",
+        "id": 604,
+        "brand_id": 23,
+        "name_en": "\tterios\t"
+      },
+      {
+        "name_ar": "\tyrv\t",
+        "name": "\tyrv\t",
+        "id": 605,
+        "brand_id": 23,
+        "name_en": "\tyrv\t"
+      },
+      {
+        "name_ar": "\td max\t",
+        "name": "\td max\t",
+        "id": 606,
+        "brand_id": 4,
+        "name_en": "\td max\t"
+      },
+      {
+        "name_ar": "\tmu x\t",
+        "name": "\tmu x\t",
+        "id": 607,
+        "brand_id": 4,
+        "name_en": "\tmu x\t"
+      },
+      {
+        "name_ar": "\ttrooper\t",
+        "name": "\ttrooper\t",
+        "id": 608,
+        "brand_id": 4,
+        "name_en": "\ttrooper\t"
+      },
+      {
+        "name_ar": "أكاديا",
+        "name": "أكاديا",
+        "id": 609,
+        "brand_id": 1,
+        "name_en": "\tacadia\t"
+      },
+      {
+        "name_ar": "إنفوي",
+        "name": "إنفوي",
+        "id": 610,
+        "brand_id": 1,
+        "name_en": "\tenvoy\t"
+      },
+      {
+        "name_ar": "سيرا",
+        "name": "سيرا",
+        "id": 611,
+        "brand_id": 1,
+        "name_en": "sierra"
+      },
+      {
+        "name_ar": "ترين",
+        "name": "ترين",
+        "id": 612,
+        "brand_id": 1,
+        "name_en": "\tterrain\t"
+      },
+      {
+        "name_ar": "يوكون",
+        "name": "يوكون",
+        "id": 613,
+        "brand_id": 1,
+        "name_en": "yukon"
+      },
+      {
+        "name_ar": "\tchiron\t",
+        "name": "\tchiron\t",
+        "id": 614,
+        "brand_id": 10,
+        "name_en": "\tchiron\t"
+      },
+      {
+        "name_ar": "\tveyron\t",
+        "name": "\tveyron\t",
+        "id": 615,
+        "brand_id": 10,
+        "name_en": "\tveyron\t"
+      },
+      {
+        "name_ar": "\tindica\t",
+        "name": "\tindica\t",
+        "id": 616,
+        "brand_id": 15,
+        "name_en": "\tindica\t"
+      },
+      {
+        "name_ar": "\tindigo\t",
+        "name": "\tindigo\t",
+        "id": 617,
+        "brand_id": 15,
+        "name_en": "\tindigo\t"
+      },
+      {
+        "name_ar": "\txenon\t",
+        "name": "\txenon\t",
+        "id": 618,
+        "brand_id": 15,
+        "name_en": "\txenon\t"
+      },
+      {
+        "name_ar": "\t9 3\t",
+        "name": "\t9 3\t",
+        "id": 619,
+        "brand_id": 26,
+        "name_en": "\t9 3\t"
+      },
+      {
+        "name_ar": "\t9 5\t",
+        "name": "\t9 5\t",
+        "id": 620,
+        "brand_id": 26,
+        "name_en": "\t9 5\t"
+      },
+      {
+        "name_ar": "\t9 7x\t",
+        "name": "\t9 7x\t",
+        "id": 621,
+        "brand_id": 26,
+        "name_en": "\t9 7x\t"
+      },
+      {
+        "name_ar": "\tactyon\t",
+        "name": "\tactyon\t",
+        "id": 622,
+        "brand_id": 27,
+        "name_en": "\tactyon\t"
+      },
+      {
+        "name_ar": "\tkorando\t",
+        "name": "\tkorando\t",
+        "id": 623,
+        "brand_id": 27,
+        "name_en": "\tkorando\t"
+      },
+      {
+        "name_ar": "\tkyron\t",
+        "name": "\tkyron\t",
+        "id": 624,
+        "brand_id": 27,
+        "name_en": "\tkyron\t"
+      },
+      {
+        "name_ar": "\tmusso\t",
+        "name": "\tmusso\t",
+        "id": 625,
+        "brand_id": 27,
+        "name_en": "\tmusso\t"
+      },
+      {
+        "name_ar": "\trexton\t",
+        "name": "\trexton\t",
+        "id": 626,
+        "brand_id": 27,
+        "name_en": "\trexton\t"
+      },
+      {
+        "name_ar": "\trodius\t",
+        "name": "\trodius\t",
+        "id": 627,
+        "brand_id": 27,
+        "name_en": "\trodius\t"
+      },
+      {
+        "name_ar": "\ttivoli\t",
+        "name": "\ttivoli\t",
+        "id": 628,
+        "brand_id": 27,
+        "name_en": "\ttivoli\t"
+      },
+      {
+        "name_ar": "\tfabia\t",
+        "name": "\tfabia\t",
+        "id": 629,
+        "brand_id": 28,
+        "name_en": "\tfabia\t"
+      },
+      {
+        "name_ar": "\toctavia\t",
+        "name": "\toctavia\t",
+        "id": 630,
+        "brand_id": 28,
+        "name_en": "\toctavia\t"
+      },
+      {
+        "name_ar": "\troomster\t",
+        "name": "\troomster\t",
+        "id": 631,
+        "brand_id": 28,
+        "name_en": "\troomster\t"
+      },
+      {
+        "name_ar": "\tsuperb\t",
+        "name": "\tsuperb\t",
+        "id": 632,
+        "brand_id": 28,
+        "name_en": "\tsuperb\t"
+      },
+      {
+        "name_ar": "\tyeti\t",
+        "name": "\tyeti\t",
+        "id": 633,
+        "brand_id": 28,
+        "name_en": "\tyeti\t"
+      },
+      {
+        "name_ar": "\taltea\t",
+        "name": "\taltea\t",
+        "id": 634,
+        "brand_id": 31,
+        "name_en": "\taltea\t"
+      },
+      {
+        "name_ar": "\tcordoba\t",
+        "name": "\tcordoba\t",
+        "id": 635,
+        "brand_id": 31,
+        "name_en": "\tcordoba\t"
+      },
+      {
+        "name_ar": "\texeo\t",
+        "name": "\texeo\t",
+        "id": 636,
+        "brand_id": 31,
+        "name_en": "\texeo\t"
+      },
+      {
+        "name_ar": "\tibiza\t",
+        "name": "\tibiza\t",
+        "id": 637,
+        "brand_id": 31,
+        "name_en": "\tibiza\t"
+      },
+      {
+        "name_ar": "\tleon\t",
+        "name": "\tleon\t",
+        "id": 638,
+        "brand_id": 31,
+        "name_en": "\tleon\t"
+      },
+      {
+        "name_ar": "\ttoledo\t",
+        "name": "\ttoledo\t",
+        "id": 639,
+        "brand_id": 31,
+        "name_en": "\ttoledo\t"
+      },
+      {
+        "name_ar": "\taventador\t",
+        "name": "\taventador\t",
+        "id": 640,
+        "brand_id": 42,
+        "name_en": "\taventador\t"
+      },
+      {
+        "name_ar": "\taventador roadster\t",
+        "name": "\taventador roadster\t",
+        "id": 641,
+        "brand_id": 42,
+        "name_en": "\taventador roadster\t"
+      },
+      {
+        "name_ar": "\tgallardo\t",
+        "name": "\tgallardo\t",
+        "id": 642,
+        "brand_id": 42,
+        "name_en": "\tgallardo\t"
+      },
+      {
+        "name_ar": "\thuracan\t",
+        "name": "\thuracan\t",
+        "id": 643,
+        "brand_id": 42,
+        "name_en": "\thuracan\t"
+      },
+      {
+        "name_ar": "\thuracan spyder\t",
+        "name": "\thuracan spyder\t",
+        "id": 644,
+        "brand_id": 42,
+        "name_en": "\thuracan spyder\t"
+      },
+      {
+        "name_ar": "\tmurcielago\t",
+        "name": "\tmurcielago\t",
+        "id": 645,
+        "brand_id": 42,
+        "name_en": "\tmurcielago\t"
+      },
+      {
+        "name_ar": "كونتينانتل",
+        "name": "كونتينانتل",
+        "id": 646,
+        "brand_id": 45,
+        "name_en": "\tcontinental\t"
+      },
+      {
+        "name_ar": "أم كي سي",
+        "name": "أم كي سي",
+        "id": 647,
+        "brand_id": 45,
+        "name_en": "\tmkc\t"
+      },
+      {
+        "name_ar": "أم كي اس",
+        "name": "أم كي اس",
+        "id": 648,
+        "brand_id": 45,
+        "name_en": "\tmks\t"
+      },
+      {
+        "name_ar": "أم كي تي",
+        "name": "أم كي تي",
+        "id": 649,
+        "brand_id": 45,
+        "name_en": "\tmkt\t"
+      },
+      {
+        "name_ar": "أم كي اكس",
+        "name": "أم كي اكس",
+        "id": 650,
+        "brand_id": 45,
+        "name_en": "\tmkx\t"
+      },
+      {
+        "name_ar": "أم كي زد",
+        "name": "أم كي زد",
+        "id": 651,
+        "brand_id": 45,
+        "name_en": "\tmkz\t"
+      },
+      {
+        "name_ar": "نافيجيتور",
+        "name": "نافيجيتور",
+        "id": 652,
+        "brand_id": 45,
+        "name_en": "\tnavigator\t"
+      },
+      {
+        "name_ar": "تاون كار",
+        "name": "تاون كار",
+        "id": 653,
+        "brand_id": 45,
+        "name_en": "\ttown car\t"
+      },
+      {
+        "name_ar": "\tcoupe\t",
+        "name": "\tcoupe\t",
+        "id": 654,
+        "brand_id": 47,
+        "name_en": "\tcoupe\t"
+      },
+      {
+        "name_ar": "\tghibli\t",
+        "name": "\tghibli\t",
+        "id": 655,
+        "brand_id": 47,
+        "name_en": "\tghibli\t"
+      },
+      {
+        "name_ar": "\tgrancabrio\t",
+        "name": "\tgrancabrio\t",
+        "id": 656,
+        "brand_id": 47,
+        "name_en": "\tgrancabrio\t"
+      },
+      {
+        "name_ar": "\tgranturismo\t",
+        "name": "\tgranturismo\t",
+        "id": 657,
+        "brand_id": 47,
+        "name_en": "\tgranturismo\t"
+      },
+      {
+        "name_ar": "\tlevante\t",
+        "name": "\tlevante\t",
+        "id": 658,
+        "brand_id": 47,
+        "name_en": "\tlevante\t"
+      },
+      {
+        "name_ar": "\tquattroporte\t",
+        "name": "\tquattroporte\t",
+        "id": 659,
+        "brand_id": 47,
+        "name_en": "\tquattroporte\t"
+      },
+      {
+        "name_ar": "\tspyder\t",
+        "name": "\tspyder\t",
+        "id": 660,
+        "brand_id": 47,
+        "name_en": "\tspyder\t"
+      },
+      {
+        "name_ar": "\ta 45 amg\t",
+        "name": "\ta 45 amg\t",
+        "id": 661,
+        "brand_id": 48,
+        "name_en": "\ta 45 amg\t"
+      },
+      {
+        "name_ar": "\ta class\t",
+        "name": "\ta class\t",
+        "id": 662,
+        "brand_id": 48,
+        "name_en": "\ta class\t"
+      },
+      {
+        "name_ar": "\tamg gt\t",
+        "name": "\tamg gt\t",
+        "id": 663,
+        "brand_id": 48,
+        "name_en": "\tamg gt\t"
+      },
+      {
+        "name_ar": "\tb class\t",
+        "name": "\tb class\t",
+        "id": 664,
+        "brand_id": 48,
+        "name_en": "\tb class\t"
+      },
+      {
+        "name_ar": "\tc 63 amg\t",
+        "name": "\tc 63 amg\t",
+        "id": 665,
+        "brand_id": 48,
+        "name_en": "\tc 63 amg\t"
+      },
+      {
+        "name_ar": "\tc 63 amg coupe\t",
+        "name": "\tc 63 amg coupe\t",
+        "id": 666,
+        "brand_id": 48,
+        "name_en": "\tc 63 amg coupe\t"
+      },
+      {
+        "name_ar": "\tc class\t",
+        "name": "\tc class\t",
+        "id": 667,
+        "brand_id": 48,
+        "name_en": "\tc class\t"
+      },
+      {
+        "name_ar": "\tc class coupe\t",
+        "name": "\tc class coupe\t",
+        "id": 668,
+        "brand_id": 48,
+        "name_en": "\tc class coupe\t"
+      },
+      {
+        "name_ar": "\tcl class\t",
+        "name": "\tcl class\t",
+        "id": 669,
+        "brand_id": 48,
+        "name_en": "\tcl class\t"
+      },
+      {
+        "name_ar": "\tcla 45 amg\t",
+        "name": "\tcla 45 amg\t",
+        "id": 670,
+        "brand_id": 48,
+        "name_en": "\tcla 45 amg\t"
+      },
+      {
+        "name_ar": "\tcla class\t",
+        "name": "\tcla class\t",
+        "id": 671,
+        "brand_id": 48,
+        "name_en": "\tcla class\t"
+      },
+      {
+        "name_ar": "\tclc class\t",
+        "name": "\tclc class\t",
+        "id": 672,
+        "brand_id": 48,
+        "name_en": "\tclc class\t"
+      },
+      {
+        "name_ar": "\tclk class\t",
+        "name": "\tclk class\t",
+        "id": 673,
+        "brand_id": 48,
+        "name_en": "\tclk class\t"
+      },
+      {
+        "name_ar": "\tcls 63 amg\t",
+        "name": "\tcls 63 amg\t",
+        "id": 674,
+        "brand_id": 48,
+        "name_en": "\tcls 63 amg\t"
+      },
+      {
+        "name_ar": "\tcls shooting brake\t",
+        "name": "\tcls shooting brake\t",
+        "id": 675,
+        "brand_id": 48,
+        "name_en": "\tcls shooting brake\t"
+      },
+      {
+        "name_ar": "\tcls class\t",
+        "name": "\tcls class\t",
+        "id": 676,
+        "brand_id": 48,
+        "name_en": "\tcls class\t"
+      },
+      {
+        "name_ar": "\te 43 amg\t",
+        "name": "\te 43 amg\t",
+        "id": 677,
+        "brand_id": 48,
+        "name_en": "\te 43 amg\t"
+      },
+      {
+        "name_ar": "\te 55 amg\t",
+        "name": "\te 55 amg\t",
+        "id": 678,
+        "brand_id": 48,
+        "name_en": "\te 55 amg\t"
+      },
+      {
+        "name_ar": "\te 63 amg\t",
+        "name": "\te 63 amg\t",
+        "id": 679,
+        "brand_id": 48,
+        "name_en": "\te 63 amg\t"
+      },
+      {
+        "name_ar": "\te class\t",
+        "name": "\te class\t",
+        "id": 680,
+        "brand_id": 48,
+        "name_en": "\te class\t"
+      },
+      {
+        "name_ar": "\te class cabriolet\t",
+        "name": "\te class cabriolet\t",
+        "id": 681,
+        "brand_id": 48,
+        "name_en": "\te class cabriolet\t"
+      },
+      {
+        "name_ar": "\te class coupe\t",
+        "name": "\te class coupe\t",
+        "id": 682,
+        "brand_id": 48,
+        "name_en": "\te class coupe\t"
+      },
+      {
+        "name_ar": "\tg 63 amg\t",
+        "name": "\tg 63 amg\t",
+        "id": 683,
+        "brand_id": 48,
+        "name_en": "\tg 63 amg\t"
+      },
+      {
+        "name_ar": "\tg 65 amg\t",
+        "name": "\tg 65 amg\t",
+        "id": 684,
+        "brand_id": 48,
+        "name_en": "\tg 65 amg\t"
+      },
+      {
+        "name_ar": "\tg class\t",
+        "name": "\tg class\t",
+        "id": 685,
+        "brand_id": 48,
+        "name_en": "\tg class\t"
+      },
+      {
+        "name_ar": "\tgl class\t",
+        "name": "\tgl class\t",
+        "id": 686,
+        "brand_id": 48,
+        "name_en": "\tgl class\t"
+      },
+      {
+        "name_ar": "\tgla class\t",
+        "name": "\tgla class\t",
+        "id": 687,
+        "brand_id": 48,
+        "name_en": "\tgla class\t"
+      },
+      {
+        "name_ar": "\tglc class\t",
+        "name": "\tglc class\t",
+        "id": 688,
+        "brand_id": 48,
+        "name_en": "\tglc class\t"
+      },
+      {
+        "name_ar": "\tglc class coupe\t",
+        "name": "\tglc class coupe\t",
+        "id": 689,
+        "brand_id": 48,
+        "name_en": "\tglc class coupe\t"
+      },
+      {
+        "name_ar": "\tgle 63 amg\t",
+        "name": "\tgle 63 amg\t",
+        "id": 690,
+        "brand_id": 48,
+        "name_en": "\tgle 63 amg\t"
+      },
+      {
+        "name_ar": "\tgle coupe 63 amg\t",
+        "name": "\tgle coupe 63 amg\t",
+        "id": 691,
+        "brand_id": 48,
+        "name_en": "\tgle coupe 63 amg\t"
+      },
+      {
+        "name_ar": "\tgle class\t",
+        "name": "\tgle class\t",
+        "id": 692,
+        "brand_id": 48,
+        "name_en": "\tgle class\t"
+      },
+      {
+        "name_ar": "\tgle class coupe\t",
+        "name": "\tgle class coupe\t",
+        "id": 693,
+        "brand_id": 48,
+        "name_en": "\tgle class coupe\t"
+      },
+      {
+        "name_ar": "\tglk class\t",
+        "name": "\tglk class\t",
+        "id": 694,
+        "brand_id": 48,
+        "name_en": "\tglk class\t"
+      },
+      {
+        "name_ar": "\tgls 63 amg\t",
+        "name": "\tgls 63 amg\t",
+        "id": 695,
+        "brand_id": 48,
+        "name_en": "\tgls 63 amg\t"
+      },
+      {
+        "name_ar": "GLC-Class",
+        "name": "GLC-Class",
+        "id": 696,
+        "brand_id": 48,
+        "name_en": "GLC-Class"
+      },
+      {
+        "name_ar": "M-Class",
+        "name": "M-Class",
+        "id": 697,
+        "brand_id": 48,
+        "name_en": "M-Class"
+      },
+      {
+        "name_ar": "\tml 63 amg\t",
+        "name": "\tml 63 amg\t",
+        "id": 698,
+        "brand_id": 48,
+        "name_en": "\tml 63 amg\t"
+      },
+      {
+        "name_ar": "R-Class",
+        "name": "R-Class",
+        "id": 699,
+        "brand_id": 48,
+        "name_en": "R-Class"
+      },
+      {
+        "name_ar": "\ts 63 amg\t",
+        "name": "\ts 63 amg\t",
+        "id": 700,
+        "brand_id": 48,
+        "name_en": "\ts 63 amg\t"
+      },
+      {
+        "name_ar": "\ts 63 amg coupe\t",
+        "name": "\ts 63 amg coupe\t",
+        "id": 701,
+        "brand_id": 48,
+        "name_en": "\ts 63 amg coupe\t"
+      },
+      {
+        "name_ar": "\ts 65 amg\t",
+        "name": "\ts 65 amg\t",
+        "id": 702,
+        "brand_id": 48,
+        "name_en": "\ts 65 amg\t"
+      },
+      {
+        "name_ar": "\ts 65 amg coupe\t",
+        "name": "\ts 65 amg coupe\t",
+        "id": 703,
+        "brand_id": 48,
+        "name_en": "\ts 65 amg coupe\t"
+      },
+      {
+        "name_ar": "S‑Class",
+        "name": "S‑Class",
+        "id": 704,
+        "brand_id": 48,
+        "name_en": "S‑Class"
+      },
+      {
+        "name_ar": "S‑Class coupe",
+        "name": "S‑Class coupe",
+        "id": 705,
+        "brand_id": 48,
+        "name_en": "S‑Class coupe"
+      },
+      {
+        "name_ar": "Maybach",
+        "name": "Maybach",
+        "id": 706,
+        "brand_id": 48,
+        "name_en": "Maybach"
+      },
+      {
+        "name_ar": "\tsl 63 amg\t",
+        "name": "\tsl 63 amg\t",
+        "id": 707,
+        "brand_id": 48,
+        "name_en": "\tsl 63 amg\t"
+      },
+      {
+        "name_ar": "\tsl 65 amg\t",
+        "name": "\tsl 65 amg\t",
+        "id": 708,
+        "brand_id": 48,
+        "name_en": "\tsl 65 amg\t"
+      },
+      {
+        "name_ar": "SL-Class",
+        "name": "SL-Class",
+        "id": 709,
+        "brand_id": 48,
+        "name_en": "SL-Class"
+      },
+      {
+        "name_ar": "\tslc class\t",
+        "name": "\tslc class\t",
+        "id": 710,
+        "brand_id": 48,
+        "name_en": "\tslc class\t"
+      },
+      {
+        "name_ar": "\tslk class\t",
+        "name": "\tslk class\t",
+        "id": 711,
+        "brand_id": 48,
+        "name_en": "\tslk class\t"
+      },
+      {
+        "name_ar": "\tslr mclaren\t",
+        "name": "\tslr mclaren\t",
+        "id": 712,
+        "brand_id": 48,
+        "name_en": "\tslr mclaren\t"
+      },
+      {
+        "name_ar": "\tsls amg\t",
+        "name": "\tsls amg\t",
+        "id": 713,
+        "brand_id": 48,
+        "name_en": "\tsls amg\t"
+      },
+      {
+        "name_ar": "\tsls amg roadster\t",
+        "name": "\tsls amg roadster\t",
+        "id": 714,
+        "brand_id": 48,
+        "name_en": "\tsls amg roadster\t"
+      },
+      {
+        "name_ar": "\tsprinter\t",
+        "name": "\tsprinter\t",
+        "id": 715,
+        "brand_id": 48,
+        "name_en": "\tsprinter\t"
+      },
+      {
+        "name_ar": "V-Class",
+        "name": "V-Class",
+        "id": 716,
+        "brand_id": 48,
+        "name_en": "V-Class"
+      },
+      {
+        "name_ar": "\tviano\t",
+        "name": "\tviano\t",
+        "id": 717,
+        "brand_id": 48,
+        "name_en": "\tviano\t"
+      },
+      {
+        "name_ar": "\tvito\t",
+        "name": "\tvito\t",
+        "id": 718,
+        "brand_id": 48,
+        "name_en": "\tvito\t"
+      },
+      {
+        "name_ar": "جراند ماركيز",
+        "name": "جراند ماركيز",
+        "id": 719,
+        "brand_id": 50,
+        "name_en": "grand marquis\t"
+      },
+      {
+        "name_ar": "مارينر",
+        "name": "مارينر",
+        "id": 720,
+        "brand_id": 50,
+        "name_en": "mariner\t"
+      },
+      {
+        "name_ar": "ميلان",
+        "name": "ميلان",
+        "id": 721,
+        "brand_id": 50,
+        "name_en": "milan\t"
+      },
+      {
+        "name_ar": "مونتيجو",
+        "name": "مونتيجو",
+        "id": 722,
+        "brand_id": 50,
+        "name_en": "montego\t"
+      },
+      {
+        "name_ar": "ماونتنير",
+        "name": "ماونتنير",
+        "id": 723,
+        "brand_id": 50,
+        "name_en": "mountaineer\t"
+      },
+      {
+        "name_ar": "\th2\t",
+        "name": "\th2\t",
+        "id": 726,
+        "brand_id": 52,
+        "name_en": "\th2\t"
+      },
+      {
+        "name_ar": "\th3\t",
+        "name": "\th3\t",
+        "id": 727,
+        "brand_id": 52,
+        "name_en": "\th3\t"
+      },
+      {
+        "name_ar": "\tgen 2\t",
+        "name": "\tgen 2\t",
+        "id": 728,
+        "brand_id": 8,
+        "name_en": "\tgen 2\t"
+      },
+      {
+        "name_ar": "\tsavvy\t",
+        "name": "\tsavvy\t",
+        "id": 729,
+        "brand_id": 8,
+        "name_en": "\tsavvy\t"
+      },
+      {
+        "name_ar": "\twaja\t",
+        "name": "\twaja\t",
+        "id": 730,
+        "brand_id": 8,
+        "name_en": "\twaja\t"
+      },
+      {
+        "name_ar": "\twira\t",
+        "name": "\twira\t",
+        "id": 731,
+        "brand_id": 8,
+        "name_en": "\twira\t"
+      },
+      {
+        "name_ar": "\tdawn\t",
+        "name": "\tdawn\t",
+        "id": 732,
+        "brand_id": 24,
+        "name_en": "\tdawn\t"
+      },
+      {
+        "name_ar": "\tdrophead coupe\t",
+        "name": "\tdrophead coupe\t",
+        "id": 733,
+        "brand_id": 24,
+        "name_en": "\tdrophead coupe\t"
+      },
+      {
+        "name_ar": "\tghost\t",
+        "name": "\tghost\t",
+        "id": 734,
+        "brand_id": 24,
+        "name_en": "\tghost\t"
+      },
+      {
+        "name_ar": "\tphantom\t",
+        "name": "\tphantom\t",
+        "id": 735,
+        "brand_id": 24,
+        "name_en": "\tphantom\t"
+      },
+      {
+        "name_ar": "\tsilver seraph\t",
+        "name": "\tsilver seraph\t",
+        "id": 736,
+        "brand_id": 24,
+        "name_en": "\tsilver seraph\t"
+      },
+      {
+        "name_ar": "\twraith\t",
+        "name": "\twraith\t",
+        "id": 737,
+        "brand_id": 24,
+        "name_en": "\twraith\t"
+      },
+      {
+        "name_ar": "\tHonker\t",
+        "name": "\tHonker\t",
+        "id": 738,
+        "brand_id": 21,
+        "name_en": "\tHonker\t"
+      },
+      {
+        "name_ar": "\tLacetti\t",
+        "name": "\tLacetti\t",
+        "id": 739,
+        "brand_id": 21,
+        "name_en": "\tLacetti\t"
+      },
+      {
+        "name_ar": "\tLanos\t",
+        "name": "\tLanos\t",
+        "id": 740,
+        "brand_id": 21,
+        "name_en": "\tLanos\t"
+      },
+      {
+        "name_ar": "\tLeganza\t",
+        "name": "\tLeganza\t",
+        "id": 741,
+        "brand_id": 21,
+        "name_en": "\tLeganza\t"
+      },
+      {
+        "name_ar": "\tLeMans\t",
+        "name": "\tLeMans\t",
+        "id": 742,
+        "brand_id": 21,
+        "name_en": "\tLeMans\t"
+      },
+      {
+        "name_ar": "\tMagnus\t",
+        "name": "\tMagnus\t",
+        "id": 743,
+        "brand_id": 21,
+        "name_en": "\tMagnus\t"
+      },
+      {
+        "name_ar": "\tMatiz\t",
+        "name": "\tMatiz\t",
+        "id": 744,
+        "brand_id": 21,
+        "name_en": "\tMatiz\t"
+      },
+      {
+        "name_ar": "\tNubira\t",
+        "name": "\tNubira\t",
+        "id": 745,
+        "brand_id": 21,
+        "name_en": "\tNubira\t"
+      },
+      {
+        "name_ar": "\tRezzo\t",
+        "name": "\tRezzo\t",
+        "id": 746,
+        "brand_id": 21,
+        "name_en": "\tRezzo\t"
+      },
+      {
+        "name_ar": "\tTacuma\t",
+        "name": "\tTacuma\t",
+        "id": 747,
+        "brand_id": 21,
+        "name_en": "\tTacuma\t"
+      },
+      {
+        "name_ar": "\tTico\t",
+        "name": "\tTico\t",
+        "id": 748,
+        "brand_id": 21,
+        "name_en": "\tTico\t"
+      },
+      {
+        "name_ar": "\tTosca\t",
+        "name": "\tTosca\t",
+        "id": 749,
+        "brand_id": 21,
+        "name_en": "\tTosca\t"
+      },
+      {
+        "name_ar": "\tVeritas\t",
+        "name": "\tVeritas\t",
+        "id": 750,
+        "brand_id": 21,
+        "name_en": "\tVeritas\t"
+      },
+      {
+        "name_ar": "\tWinstorm\t",
+        "name": "\tWinstorm\t",
+        "id": 751,
+        "brand_id": 21,
+        "name_en": "\tWinstorm\t"
+      },
+      {
+        "name_ar": "كونا",
+        "name": "كونا",
+        "id": 752,
+        "brand_id": 54,
+        "name_en": "Kona"
+      },
+      {
+        "name_ar": "D70",
+        "name": "D70",
+        "id": 753,
+        "brand_id": 55,
+        "name_en": "D70"
+      },
+      {
+        "name_ar": "D20",
+        "name": "D20",
+        "id": 754,
+        "brand_id": 55,
+        "name_en": "D20"
+      },
+      {
+        "name_ar": "X25",
+        "name": "X25",
+        "id": 755,
+        "brand_id": 55,
+        "name_en": "X25"
+      },
+      {
+        "name_ar": "X35",
+        "name": "X35",
+        "id": 756,
+        "brand_id": 55,
+        "name_en": "X35"
+      },
+      {
+        "name_ar": "X55",
+        "name": "X55",
+        "id": 757,
+        "brand_id": 55,
+        "name_en": "X55"
+      },
+      {
+        "name_ar": "X65",
+        "name": "X65",
+        "id": 758,
+        "brand_id": 55,
+        "name_en": "X65"
+      },
+      {
+        "name_ar": "A1",
+        "name": "A1",
+        "id": 759,
+        "brand_id": 55,
+        "name_en": "A1"
+      },
+      {
+        "name_ar": "A5",
+        "name": "A5",
+        "id": 760,
+        "brand_id": 55,
+        "name_en": "A5"
+      },
+      {
+        "name_ar": "D50",
+        "name": "D50",
+        "id": 761,
+        "brand_id": 55,
+        "name_en": "D50"
+      },
+      {
+        "name_ar": "D20",
+        "name": "D20",
+        "id": 762,
+        "brand_id": 55,
+        "name_en": "D20"
+      },
+      {
+        "name_ar": "A115",
+        "name": "A115",
+        "id": 763,
+        "brand_id": 55,
+        "name_en": "A115"
+      },
+      {
+        "name_ar": "اتش ار في",
+        "name": "اتش ار في",
+        "id": 764,
+        "brand_id": 53,
+        "name_en": "HR-V"
+      },
+      {
+        "name_ar": "إيدو",
+        "name": "إيدو",
+        "id": 765,
+        "brand_id": 56,
+        "name_en": "Eado"
+      },
+      {
+        "name_ar": "السفين",
+        "name": "السفين",
+        "id": 766,
+        "brand_id": 56,
+        "name_en": "ALSVIN"
+      },
+      {
+        "name_ar": "سي اس 95",
+        "name": "سي اس 95",
+        "id": 767,
+        "brand_id": 56,
+        "name_en": "CS95"
+      },
+      {
+        "name_ar": "سي اس 85",
+        "name": "سي اس 85",
+        "id": 768,
+        "brand_id": 56,
+        "name_en": "CS85"
+      },
+      {
+        "name_ar": "سي اس 75",
+        "name": "سي اس 75",
+        "id": 769,
+        "brand_id": 56,
+        "name_en": "CS75"
+      },
+      {
+        "name_ar": "سي اس 35",
+        "name": "سي اس 35",
+        "id": 770,
+        "brand_id": 56,
+        "name_en": "CS35"
+      },
+      {
+        "name_ar": "X40",
+        "name": "X40",
+        "id": 771,
+        "brand_id": 57,
+        "name_en": "X40"
+      },
+      {
+        "name_ar": "B50",
+        "name": "B50",
+        "id": 772,
+        "brand_id": 57,
+        "name_en": "B50"
+      },
+      {
+        "name_ar": "T77",
+        "name": "T77",
+        "id": 773,
+        "brand_id": 57,
+        "name_en": "T77"
+      },
+      {
+        "name_ar": "X80",
+        "name": "X80",
+        "id": 774,
+        "brand_id": 57,
+        "name_en": "X80"
+      },
+      {
+        "name_ar": "H9",
+        "name": "H9",
+        "id": 775,
+        "brand_id": 59,
+        "name_en": "H9"
+      },
+      {
+        "name_ar": "H6",
+        "name": "H6",
+        "id": 776,
+        "brand_id": 59,
+        "name_en": "H6"
+      },
+      {
+        "name_ar": "H2",
+        "name": "H2",
+        "id": 777,
+        "brand_id": 59,
+        "name_en": "H2"
+      },
+      {
+        "name_ar": "كرسيدا",
+        "name": "كرسيدا",
+        "id": 778,
+        "brand_id": 17,
+        "name_en": "Cressida"
+      },
+      {
+        "name_ar": "سيدان",
+        "name": "سيدان",
+        "id": 780,
+        "brand_id": 41,
+        "name_en": "Sedan"
+      },
+      {
+        "name_ar": "1500",
+        "name": "1500",
+        "id": 788,
+        "brand_id": 61,
+        "name_en": "1500"
+      },
+      {
+        "name_ar": "2500",
+        "name": "2500",
+        "id": 789,
+        "brand_id": 61,
+        "name_en": "2500"
+      },
+      {
+        "name_ar": "جيب",
+        "name": "جيب",
+        "id": 799,
+        "brand_id": 41,
+        "name_en": "jeep"
+      },
+      {
+        "name_ar": "GL-Class",
+        "name": "GL-Class",
+        "id": 808,
+        "brand_id": 48,
+        "name_en": "GL-Class"
+      },
+      {
+        "name_ar": "هاتشباك",
+        "name": "هاتشباك",
+        "id": 810,
+        "brand_id": 54,
+        "name_en": "Hatchback"
+      },
+      {
+        "name_ar": "فان",
+        "name": "فان",
+        "id": 811,
+        "brand_id": 34,
+        "name_en": "Van"
+      },
+      {
+        "name_ar": "C-Class",
+        "name": "C-Class",
+        "id": 814,
+        "brand_id": 48,
+        "name_en": "C-Class"
+      },
+      {
+        "name_ar": "سي اكس 3",
+        "name": "سي اكس 3",
+        "id": 820,
+        "brand_id": 46,
+        "name_en": "cx 3"
+      },
+      {
+        "name_ar": "E-Class",
+        "name": "E-Class",
+        "id": 822,
+        "brand_id": 48,
+        "name_en": "E-Class"
+      },
+      {
+        "name_ar": "فان هايس",
+        "name": "فان هايس",
+        "id": 834,
+        "brand_id": 17,
+        "name_en": "Hiace"
+      },
+      {
+        "name_ar": "كلاروس",
+        "name": "كلاروس",
+        "id": 837,
+        "brand_id": 41,
+        "name_en": "clarus"
+      },
+      {
+        "name_ar": "a4",
+        "name": "a4",
+        "id": 842,
+        "brand_id": 7,
+        "name_en": "a4"
+      },
+      {
+        "name_ar": "بروتيج",
+        "name": "بروتيج",
+        "id": 843,
+        "brand_id": 46,
+        "name_en": "Protege"
+      },
+      {
+        "name_ar": "x2",
+        "name": "x2",
+        "id": 846,
+        "brand_id": 12,
+        "name_en": "x2"
+      },
+      {
+        "name_ar": "تيلورايد",
+        "name": "تيلورايد",
+        "id": 851,
+        "brand_id": 41,
+        "name_en": "telluride"
+      },
+      {
+        "name_ar": "جوليا",
+        "name": "جوليا",
+        "id": 852,
+        "brand_id": 62,
+        "name_en": "Giulia"
+      },
+      {
+        "name_ar": "سيلتوس",
+        "name": "سيلتوس",
+        "id": 853,
+        "brand_id": 41,
+        "name_en": "seltos"
+      },
+      {
+        "name_ar": "RX88",
+        "name": "RX88",
+        "id": 878,
+        "brand_id": 2,
+        "name_en": "RX88"
+      },
+      {
+        "name_ar": "رابيد",
+        "name": "رابيد",
+        "id": 883,
+        "brand_id": 28,
+        "name_en": "Rapid"
+      },
+      {
+        "name_ar": "جي تور اكس 70",
+        "name": "جي تور اكس 70",
+        "id": 892,
+        "brand_id": 16,
+        "name_en": "Jetour X70"
+      },
+      {
+        "name_ar": "CLA-Class",
+        "name": "CLA-Class",
+        "id": 895,
+        "brand_id": 48,
+        "name_en": "CLA-Class"
+      },
+      {
+        "name_ar": "5 series",
+        "name": "5 series",
+        "id": 897,
+        "brand_id": 12,
+        "name_en": "5 series"
+      },
+      {
+        "name_ar": "بيجاس",
+        "name": "بيجاس",
+        "id": 905,
+        "brand_id": 41,
+        "name_en": "pegas"
+      },
+      {
+        "name_ar": "كي 5",
+        "name": "كي 5",
+        "id": 907,
+        "brand_id": 41,
+        "name_en": "K5"
+      },
+      {
+        "name_ar": "GA4",
+        "name": "GA4",
+        "id": 908,
+        "brand_id": 63,
+        "name_en": "GA4"
+      },
+      {
+        "name_ar": "GA8",
+        "name": "GA8",
+        "id": 909,
+        "brand_id": 63,
+        "name_en": "GA8"
+      },
+      {
+        "name_ar": "GS3",
+        "name": "GS3",
+        "id": 910,
+        "brand_id": 63,
+        "name_en": "GS3"
+      },
+      {
+        "name_ar": "GS4",
+        "name": "GS4",
+        "id": 911,
+        "brand_id": 63,
+        "name_en": "GS4"
+      },
+      {
+        "name_ar": "GS5",
+        "name": "GS5",
+        "id": 912,
+        "brand_id": 63,
+        "name_en": "GS5"
+      },
+      {
+        "name_ar": "GS8",
+        "name": "GS8",
+        "id": 913,
+        "brand_id": 63,
+        "name_en": "GS8"
+      },
+      {
+        "name_ar": "GN6",
+        "name": "GN6",
+        "id": 914,
+        "brand_id": 63,
+        "name_en": "GN6"
+      },
+      {
+        "name_ar": "GN8",
+        "name": "GN8",
+        "id": 915,
+        "brand_id": 63,
+        "name_en": "GN8"
+      },
+      {
+        "name_ar": "GLC-Class",
+        "name": "GLC-Class",
+        "id": 919,
+        "brand_id": 48,
+        "name_en": "GLC-Class"
+      },
+      {
+        "name_ar": "سطحة",
+        "name": "سطحة",
+        "id": 929,
+        "brand_id": 4,
+        "name_en": "Satha"
+      },
+      {
+        "name_ar": "دير",
+        "name": "دير",
+        "id": 931,
+        "brand_id": 60,
+        "name_en": "Deer"
+      },
+      {
+        "name_ar": "كوبر",
+        "name": "كوبر",
+        "id": 936,
+        "brand_id": 64,
+        "name_en": "Cooper"
+      },
+      {
+        "name_ar": "3 series",
+        "name": "3 series",
+        "id": 937,
+        "brand_id": 12,
+        "name_en": "3 series"
+      },
+      {
+        "name_ar": "فاريكا",
+        "name": "فاريكا",
+        "id": 938,
+        "brand_id": 65,
+        "name_en": "Veryca"
+      },
+      {
+        "name_ar": "D260",
+        "name": "D260",
+        "id": 939,
+        "brand_id": 65,
+        "name_en": "D260"
+      },
+      {
+        "name_ar": "D270",
+        "name": "D270",
+        "id": 940,
+        "brand_id": 65,
+        "name_en": "D270"
+      },
+      {
+        "name_ar": "بنراي",
+        "name": "بنراي",
+        "id": 941,
+        "brand_id": 20,
+        "name_en": "binary"
+      },
+      {
+        "name_ar": "G-class",
+        "name": "G-class",
+        "id": 943,
+        "brand_id": 48,
+        "name_en": "G-class"
+      },
+      {
+        "name_ar": "GLS- Class",
+        "name": "GLS- Class",
+        "id": 944,
+        "brand_id": 48,
+        "name_en": "GLS- Class"
+      },
+      {
+        "name_ar": "كابريو",
+        "name": "كابريو",
+        "id": 945,
+        "brand_id": 64,
+        "name_en": "cabrio"
+      },
+      {
+        "name_ar": "سبيس ستار",
+        "name": "سبيس ستار",
+        "id": 950,
+        "brand_id": 49,
+        "name_en": "space star"
+      },
+      {
+        "name_ar": "رود ماستر",
+        "name": "رود ماستر",
+        "id": 958,
+        "brand_id": 14,
+        "name_en": "road master"
+      },
+      {
+        "name_ar": "افانتي",
+        "name": "افانتي",
+        "id": 967,
+        "brand_id": 54,
+        "name_en": "avante"
+      },
+      {
+        "name_ar": "اف 3",
+        "name": "اف 3",
+        "id": 970,
+        "brand_id": 66,
+        "name_en": "F3"
+      },
+      {
+        "name_ar": "4 series",
+        "name": "4 series",
+        "id": 973,
+        "brand_id": 12,
+        "name_en": "4 series"
+      },
+      {
+        "name_ar": "132",
+        "name": "132",
+        "id": 976,
+        "brand_id": 72,
+        "name_en": "132"
+      },
+      {
+        "name_ar": "3سيدان",
+        "name": "3سيدان",
+        "id": 977,
+        "brand_id": 46,
+        "name_en": "3سيدان"
+      },
+      {
+        "name_ar": "تيرامونت",
+        "name": "تيرامونت",
+        "id": 978,
+        "brand_id": 77,
+        "name_en": "تيرامونت"
+      },
+      {
+        "name_ar": "سنتافيه",
+        "name": "سنتافيه",
+        "id": 979,
+        "brand_id": 76,
+        "name_en": "سنتافيه"
+      },
+      {
+        "name_ar": "تورس سيدان",
+        "name": "تورس سيدان",
+        "id": 980,
+        "brand_id": 34,
+        "name_en": "تورس سيدان"
+      },
+      {
+        "name_ar": "كومارو",
+        "name": "كومارو",
+        "id": 981,
+        "brand_id": 78,
+        "name_en": "كومارو"
+      },
+      {
+        "name_ar": "L300",
+        "name": "L300",
+        "id": 982,
+        "brand_id": 49,
+        "name_en": "L300"
+      },
+      {
+        "name_ar": "تيرامونت55",
+        "name": "تيرامونت55",
+        "id": 986,
+        "brand_id": 78,
+        "name_en": "تيرامونت٥٥ "
+      },
+      {
+        "name_ar": "شاحنة",
+        "name": "شاحنة",
+        "id": 987,
+        "brand_id": 48,
+        "name_en": "truck"
+      },
+      {
+        "name_ar": "شاحنه",
+        "name": "شاحنه",
+        "id": 988,
+        "brand_id": 1,
+        "name_en": "Trucks"
+      },
+      {
+        "name_ar": "موديل الإختبار",
+        "name": "موديل الإختبار",
+        "id": 989,
+        "brand_id": 1,
+        "name_en": "Testing Model"
+      },
+      {
+        "name_ar": "موديل الإختبار",
+        "name": "موديل الإختبار",
+        "id": 990,
+        "brand_id": 2,
+        "name_en": "Testing Model"
+      },
+      {
+        "name_ar": "أزيرا",
+        "name": "أزيرا",
+        "id": 991,
+        "brand_id": 3,
+        "name_en": "Azera"
+      },
+      {
+        "name_ar": "تست",
+        "name": "تست",
+        "id": 992,
+        "brand_id": 1,
+        "name_en": "test"
+      },
+      {
+        "name_ar": "تست",
+        "name": "تست",
+        "id": 993,
+        "brand_id": 2,
+        "name_en": "test"
+      },
+      {
+        "name_ar": "تست",
+        "name": "تست",
+        "id": 994,
+        "brand_id": 3,
+        "name_en": "test"
+      },
+      {
+        "name_ar": "تست",
+        "name": "تست",
+        "id": 995,
+        "brand_id": 5,
+        "name_en": "test"
+      }
+    ],
+    "brands": [
+      {
+        "image": "gmc.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/gmc.png",
+        "name_ar": "جى ايم سىي",
+        "name": "جى ايم سىي",
+        "id": 1,
+        "name_en": "GMC"
+      },
+      {
+        "image": "mg.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/mg.png",
+        "name_ar": "إم جي",
+        "name": "إم جي",
+        "id": 2,
+        "name_en": "MG"
+      },
+      {
+        "image": "aston.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/aston.png",
+        "name_ar": "أستون مارتنن",
+        "name": "أستون مارتنن",
+        "id": 3,
+        "name_en": "Aston Martin"
+      },
+      {
+        "image": "isuzu.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/isuzu.png",
+        "name_ar": "ايسوزو",
+        "name": "ايسوزو",
+        "id": 4,
+        "name_en": "Isuzu"
+      },
+      {
+        "image": "infiniti.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/infiniti.png",
+        "name_ar": "إنفينيتي",
+        "name": "إنفينيتي",
+        "id": 5,
+        "name_en": "Infiniti"
+      },
+      {
+        "image": "opel.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/opel.png",
+        "name_ar": "أوبل",
+        "name": "أوبل",
+        "id": 6,
+        "name_en": "Opel"
+      },
+      {
+        "image": "audi.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/audi.png",
+        "name_ar": "أودي",
+        "name": "أودي",
+        "id": 7,
+        "name_en": "Audi"
+      },
+      {
+        "image": "proton.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/proton.png",
+        "name_ar": "بروتون",
+        "name": "بروتون",
+        "id": 8,
+        "name_en": "proton"
+      },
+      {
+        "image": "bentley.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/bentley.png",
+        "name_ar": "بنتلي",
+        "name": "بنتلي",
+        "id": 9,
+        "name_en": "Bentley"
+      },
+      {
+        "image": "bugatti.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/bugatti.png",
+        "name_ar": "بوجاتي",
+        "name": "بوجاتي",
+        "id": 10,
+        "name_en": "Bugatti"
+      },
+      {
+        "image": "porshce.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/porshce.png",
+        "name_ar": "بورش",
+        "name": "بورش",
+        "id": 11,
+        "name_en": "Porsche"
+      },
+      {
+        "image": "bmw.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/bmw.png",
+        "name_ar": "بي إم دبليو",
+        "name": "بي إم دبليو",
+        "id": 12,
+        "name_en": "BMW"
+      },
+      {
+        "image": "peugeot.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/peugeot.png",
+        "name_ar": "بيجو",
+        "name": "بيجو",
+        "id": 13,
+        "name_en": "Peugeot"
+      },
+      {
+        "image": "buick.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/buick.png",
+        "name_ar": "بيوك",
+        "name": "بيوك",
+        "id": 14,
+        "name_en": "Buick"
+      },
+      {
+        "image": "tata.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/tata.png",
+        "name_ar": "تاتا موتورز",
+        "name": "تاتا موتورز",
+        "id": 15,
+        "name_en": "Tata"
+      },
+      {
+        "image": "chery.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/chery.png",
+        "name_ar": "شيري",
+        "name": "شيري",
+        "id": 16,
+        "name_en": "Chery"
+      },
+      {
+        "image": "toyota.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/toyota.png",
+        "name_ar": "تويوتا",
+        "name": "تويوتا",
+        "id": 17,
+        "name_en": "Toyota"
+      },
+      {
+        "image": "jaguar.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/jaguar.png",
+        "name_ar": "جاغوار",
+        "name": "جاغوار",
+        "id": 18,
+        "name_en": "Jaguar"
+      },
+      {
+        "image": "jeep.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/jeep.png",
+        "name_ar": "جيب",
+        "name": "جيب",
+        "id": 19,
+        "name_en": "Jeep"
+      },
+      {
+        "image": "geely.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/geely.png",
+        "name_ar": "جيلي",
+        "name": "جيلي",
+        "id": 20,
+        "name_en": "Geely"
+      },
+      {
+        "image": "daewoo.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/daewoo.png",
+        "name_ar": "دايو",
+        "name": "دايو",
+        "id": 21,
+        "name_en": "Daewoo"
+      },
+      {
+        "image": "dodge.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/dodge.png",
+        "name_ar": "دودج",
+        "name": "دودج",
+        "id": 22,
+        "name_en": "Dodge"
+      },
+      {
+        "image": "diahtso.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/diahtso.png",
+        "name_ar": "ديهاتسو",
+        "name": "ديهاتسو",
+        "id": 23,
+        "name_en": "Daihatsu"
+      },
+      {
+        "image": "rolls.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/rolls.png",
+        "name_ar": "رولز رويس",
+        "name": "رولز رويس",
+        "id": 24,
+        "name_en": "Rolls Royce"
+      },
+      {
+        "image": "reno.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/reno.png",
+        "name_ar": "رينو",
+        "name": "رينو",
+        "id": 25,
+        "name_en": "Renault"
+      },
+      {
+        "image": "saab.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/saab.png",
+        "name_ar": "ساب",
+        "name": "ساب",
+        "id": 26,
+        "name_en": "Saab"
+      },
+      {
+        "image": "SsangYong.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/SsangYong.png",
+        "name_ar": "سانج يونج",
+        "name": "سانج يونج",
+        "id": 27,
+        "name_en": "Ssangyong"
+      },
+      {
+        "image": "scoda.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/scoda.png",
+        "name_ar": "سكودا",
+        "name": "سكودا",
+        "id": 28,
+        "name_en": "Skoda"
+      },
+      {
+        "image": "subaro.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/subaro.png",
+        "name_ar": "سوبارو",
+        "name": "سوبارو",
+        "id": 29,
+        "name_en": "Subaru"
+      },
+      {
+        "image": "suzuki.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/suzuki.png",
+        "name_ar": "سوزوكي",
+        "name": "سوزوكي",
+        "id": 30,
+        "name_en": "Suzuki"
+      },
+      {
+        "image": "seat.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/seat.png",
+        "name_ar": "سيات",
+        "name": "سيات",
+        "id": 31,
+        "name_en": "Seat"
+      },
+      {
+        "image": "cetroen.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/cetroen.png",
+        "name_ar": "سيتروين",
+        "name": "سيتروين",
+        "id": 32,
+        "name_en": "Citroen"
+      },
+      {
+        "image": "chevrolet.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/chevrolet.png",
+        "name_ar": "شيفروليه",
+        "name": "شيفروليه",
+        "id": 33,
+        "name_en": "Chevrolet"
+      },
+      {
+        "image": "ford.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/ford.png",
+        "name_ar": "فورد",
+        "name": "فورد",
+        "id": 34,
+        "name_en": "Ford"
+      },
+      {
+        "image": "volvo.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/volvo.png",
+        "name_ar": "فولفو",
+        "name": "فولفو",
+        "id": 35,
+        "name_en": "Volvo"
+      },
+      {
+        "image": "fiat.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/fiat.png",
+        "name_ar": "فيات",
+        "name": "فيات",
+        "id": 37,
+        "name_en": "Fiat"
+      },
+      {
+        "image": "ferari.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/ferari.png",
+        "name_ar": "فيراري",
+        "name": "فيراري",
+        "id": 38,
+        "name_en": "Ferrari"
+      },
+      {
+        "image": "cadilac.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/cadilac.png",
+        "name_ar": "كاديلاك",
+        "name": "كاديلاك",
+        "id": 39,
+        "name_en": "Cadillac"
+      },
+      {
+        "image": "chrysler.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/chrysler.png",
+        "name_ar": "كرايسلر",
+        "name": "كرايسلر",
+        "id": 40,
+        "name_en": "Chrysler"
+      },
+      {
+        "image": "kia.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/kia.png",
+        "name_ar": "كيا",
+        "name": "كيا",
+        "id": 41,
+        "name_en": "Kia"
+      },
+      {
+        "image": "lamborghini.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/lamborghini.png",
+        "name_ar": "لامبورغيني",
+        "name": "لامبورغيني",
+        "id": 42,
+        "name_en": "Lamborghini"
+      },
+      {
+        "image": "landrover.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/landrover.png",
+        "name_ar": "لاند روفر",
+        "name": "لاند روفر",
+        "id": 43,
+        "name_en": "land Rover"
+      },
+      {
+        "image": "lexus.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/lexus.png",
+        "name_ar": "لكزس",
+        "name": "لكزس",
+        "id": 44,
+        "name_en": "Lexus"
+      },
+      {
+        "image": "lincoln.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/lincoln.png",
+        "name_ar": "لنكولن",
+        "name": "لنكولن",
+        "id": 45,
+        "name_en": "Lincoln"
+      },
+      {
+        "image": "mazda.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/mazda.png",
+        "name_ar": "مازدا",
+        "name": "مازدا",
+        "id": 46,
+        "name_en": "Mazda"
+      },
+      {
+        "image": "maserati.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/maserati.png",
+        "name_ar": "مازيراتي",
+        "name": "مازيراتي",
+        "id": 47,
+        "name_en": "Maserati"
+      },
+      {
+        "image": "mercids.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/mercids.png",
+        "name_ar": "مرسيدس",
+        "name": "مرسيدس",
+        "id": 48,
+        "name_en": "Mercedes Benz"
+      },
+      {
+        "image": "mitsubishi.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/mitsubishi.png",
+        "name_ar": "ميتسوبيشي",
+        "name": "ميتسوبيشي",
+        "id": 49,
+        "name_en": "Mitsubishi"
+      },
+      {
+        "image": "merecory.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/merecory.png",
+        "name_ar": "ميركوري",
+        "name": "ميركوري",
+        "id": 50,
+        "name_en": "Mercury"
+      },
+      {
+        "image": "nissan.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/nissan.png",
+        "name_ar": "نيسان",
+        "name": "نيسان",
+        "id": 51,
+        "name_en": "Nissan"
+      },
+      {
+        "image": "hummer.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/hummer.png",
+        "name_ar": "همر",
+        "name": "همر",
+        "id": 52,
+        "name_en": "Hummer"
+      },
+      {
+        "image": "honda.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/honda.png",
+        "name_ar": "هوندا",
+        "name": "هوندا",
+        "id": 53,
+        "name_en": "Honda"
+      },
+      {
+        "image": "hunday.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/hunday.png",
+        "name_ar": "هيونداي",
+        "name": "هيونداي",
+        "id": 54,
+        "name_en": "Hyundai"
+      },
+      {
+        "image": "baic.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/baic.png",
+        "name_ar": "بايك",
+        "name": "بايك",
+        "id": 55,
+        "name_en": "BAIC"
+      },
+      {
+        "image": "changan.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/changan.png",
+        "name_ar": "شانجان",
+        "name": "شانجان",
+        "id": 56,
+        "name_en": "Changan"
+      },
+      {
+        "image": "FAW.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/FAW.png",
+        "name_ar": "فاو",
+        "name": "فاو",
+        "id": 57,
+        "name_en": "FAW"
+      },
+      {
+        "image": "foton.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/foton.png",
+        "name_ar": "فوتون",
+        "name": "فوتون",
+        "id": 58,
+        "name_en": "Foton"
+      },
+      {
+        "image": "haval.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/haval.png",
+        "name_ar": "هافال",
+        "name": "هافال",
+        "id": 59,
+        "name_en": "HAVAL"
+      },
+      {
+        "image": "Great-wall.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/Great-wall.png",
+        "name_ar": "جريت وول",
+        "name": "جريت وول",
+        "id": 60,
+        "name_en": "Great Wall"
+      },
+      {
+        "image": "ram.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/ram.png",
+        "name_ar": "رام",
+        "name": "رام",
+        "id": 61,
+        "name_en": "RAM"
+      },
+      {
+        "image": "alfa_romeo.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/alfa_romeo.png",
+        "name_ar": "ألفا روميو",
+        "name": "ألفا روميو",
+        "id": 62,
+        "name_en": "Alfa Romeo"
+      },
+      {
+        "image": "jac_motors.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/jac_motors.png",
+        "name_ar": "جاك",
+        "name": "جاك",
+        "id": 63,
+        "name_en": "GAC"
+      },
+      {
+        "image": "MINI.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/MINI.png",
+        "name_ar": "ميني",
+        "name": "ميني",
+        "id": 64,
+        "name_en": "MINI"
+      },
+      {
+        "image": "CMC.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/CMC.png",
+        "name_ar": "سي ام سي",
+        "name": "سي ام سي",
+        "id": 65,
+        "name_en": "CMC"
+      },
+      {
+        "image": "BYD.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/BYD.png",
+        "name_ar": "بي واي دي",
+        "name": "بي واي دي",
+        "id": 66,
+        "name_en": "BYD"
+      },
+      {
+        "image": "",
+        "image_url": "",
+        "name_ar": "ريجاتا",
+        "name": "ريجاتا",
+        "id": 72,
+        "name_en": "Regata"
+      },
+      {
+        "image": "Tesla.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/Tesla.png",
+        "name_ar": "تسلا",
+        "name": "تسلا",
+        "id": 74,
+        "name_en": "tesla"
+      },
+      {
+        "image": "SAIC.png",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/SAIC.png",
+        "name_ar": "سايك",
+        "name": "سايك",
+        "id": 75,
+        "name_en": "SAIC"
+      },
+      {
+        "image_url": "",
+        "name_ar": "grg",
+        "name": "grg",
+        "id": 77,
+        "name_en": "grg"
+      },
+      {
+        "image": "volks.jpg",
+        "image_url": "https://d1890tb6bes4pp.cloudfront.net/constant/brands/volks.jpg",
+        "name_ar": "فوليكس",
+        "name": "فوليكس",
+        "id": 78,
+        "name_en": "فوليكس"
+      }
+    ],
+    "cities": [
+      {
+        "latitude": "24.713552",
+        "name_ar": "الرياض الرياض",
+        "name": "الرياض الرياض",
+        "id": 1,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "longitude": "46.675296",
+        "name_en": "Riyadh"
+      },
+      {
+        "name_ar": "جدة",
+        "name": "جدة",
+        "id": 2,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      39.052276611328125,
+                      21.78118059688946
+                    ],
+                    [
+                      39.10446166992187,
+                      21.568694889211546
+                    ],
+                    [
+                      39.19166564941406,
+                      21.406408847594108
+                    ],
+                    [
+                      39.32762145996094,
+                      21.421111484957944
+                    ],
+                    [
+                      39.22737121582031,
+                      21.830906665069758
+                    ],
+                    [
+                      39.052276611328125,
+                      21.78118059688946
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "Jeddah"
+      },
+      {
+        "name_ar": "مكة المكرمة",
+        "name": "مكة المكرمة",
+        "id": 3,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      39.5068359375,
+                      26.86328062676624
+                    ],
+                    [
+                      36.9580078125,
+                      27.527758206861886
+                    ],
+                    [
+                      36.6943359375,
+                      27.059125784374068
+                    ],
+                    [
+                      37.880859375,
+                      24.966140159912975
+                    ],
+                    [
+                      38.408203125,
+                      24.16680208530324
+                    ],
+                    [
+                      40.25390625,
+                      22.350075806124867
+                    ],
+                    [
+                      41.0888671875,
+                      23.039297747769726
+                    ],
+                    [
+                      42.0556640625,
+                      24.806681353851964
+                    ],
+                    [
+                      41.30859375,
+                      25.760319754713887
+                    ],
+                    [
+                      39.990234375,
+                      25.3241665257384
+                    ],
+                    [
+                      39.5068359375,
+                      26.86328062676624
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "Mecca"
+      },
+      {
+        "name_ar": "الخبر",
+        "name": "الخبر",
+        "id": 4,
+        "name_en": "Khuber"
+      },
+      {
+        "name_ar": "test",
+        "name": "test",
+        "id": 5,
+        "name_en": "test"
+      },
+      {
+        "name_ar": "تست",
+        "name": "تست",
+        "id": 6,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "Test22"
+      },
+      {
+        "name_ar": "المجمعة",
+        "name": "المجمعة",
+        "id": 7,
+        "name_en": "Mogamaa"
+      },
+      {
+        "name_ar": "بريدة",
+        "name": "بريدة",
+        "id": 9,
+        "name_en": "بريدة\n"
+      },
+      {
+        "latitude": "26.2995825",
+        "name_ar": "الزلفي",
+        "name": "الزلفي",
+        "id": 10,
+        "longitude": "44.8268789",
+        "name_en": "Az Zilfi"
+      },
+      {
+        "latitude": "31.6618875",
+        "name_ar": "طريف‎",
+        "name": "طريف‎",
+        "id": 11,
+        "longitude": "38.667668",
+        "name_en": "Turayf"
+      },
+      {
+        "latitude": "16.596466501159117",
+        "name_ar": "السميتة",
+        "name": "السميتة",
+        "id": 12,
+        "longitude": "42.9367720708251",
+        "name_en": "Al sameta"
+      },
+      {
+        "latitude": "28.379636563293335",
+        "name_ar": "تبوك",
+        "name": "تبوك",
+        "id": 13,
+        "longitude": "36.56637378036976",
+        "name_en": "Tabuk"
+      },
+      {
+        "latitude": "17.5516125",
+        "name_ar": "نجران",
+        "name": "نجران",
+        "id": 14,
+        "longitude": "44.2513633",
+        "name_en": "Najran"
+      },
+      {
+        "latitude": "21.418072499999997",
+        "name_ar": "مكة",
+        "name": "مكة",
+        "id": 15,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      39.86869812011719,
+                      21.532930847797974
+                    ],
+                    [
+                      39.69017028808594,
+                      21.510573847023057
+                    ],
+                    [
+                      39.76226806640625,
+                      21.32455847469097
+                    ],
+                    [
+                      39.94422912597656,
+                      21.367407734628205
+                    ],
+                    [
+                      39.86869812011719,
+                      21.532930847797974
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "longitude": "39.8716602",
+        "name_en": "Makkah"
+      },
+      {
+        "name_ar": "تيست ٣",
+        "name": "تيست ٣",
+        "id": 16,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "test 2"
+      },
+      {
+        "latitude": "20.375412",
+        "name_ar": "وادي الدواسر",
+        "name": "وادي الدواسر",
+        "id": 17,
+        "longitude": "45.269137",
+        "name_en": "Wadi ad-Dawasir"
+      },
+      {
+        "latitude": "25.238932747955968",
+        "name_ar": "شقراء",
+        "name": "شقراء",
+        "id": 18,
+        "longitude": "45.253314860165126",
+        "name_en": "Shaqra"
+      },
+      {
+        "latitude": "26.418290450549176",
+        "name_ar": "الدمام",
+        "name": "الدمام",
+        "id": 19,
+        "longitude": "50.0804877653718",
+        "name_en": "Dammam"
+      },
+      {
+        "latitude": "21.27952822869724",
+        "name_ar": "الطائف",
+        "name": "الطائف",
+        "id": 20,
+        "longitude": "40.42999193072319",
+        "name_en": "At Taif"
+      },
+      {
+        "latitude": "27.017987612399754",
+        "name_ar": "الجبيل",
+        "name": "الجبيل",
+        "id": 21,
+        "longitude": "49.651704132556915",
+        "name_en": "Al Jubayl"
+      },
+      {
+        "latitude": "31.201572526898936",
+        "name_ar": "الإسكندرية",
+        "name": "الإسكندرية",
+        "id": 22,
+        "longitude": "29.918827553382293",
+        "name_en": "Alexandria"
+      },
+      {
+        "name_ar": "سكاكا",
+        "name": "سكاكا",
+        "id": 24,
+        "name_en": "Sakaka"
+      },
+      {
+        "name_ar": "تيست ٣",
+        "name": "تيست ٣",
+        "id": 25,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "test 2"
+      },
+      {
+        "name_ar": "تيست ٣",
+        "name": "تيست ٣",
+        "id": 26,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "test 2"
+      },
+      {
+        "name_ar": "تيست ٣",
+        "name": "تيست ٣",
+        "id": 27,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "test 2"
+      },
+      {
+        "name_ar": "تيست ٣",
+        "name": "تيست ٣",
+        "id": 28,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "test 2"
+      },
+      {
+        "name_ar": "المدينة المنوره ",
+        "name": "المدينة المنوره ",
+        "id": 29,
+        "name_en": "Madinah"
+      },
+      {
+        "name_ar": "القطيف",
+        "name": "القطيف",
+        "id": 30,
+        "name_en": "Al Qatif"
+      },
+      {
+        "name_ar": "أسوان بعد التعديل",
+        "name": "أسوان بعد التعديل",
+        "id": 31,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.010742187500014,
+                      25.244695951306014
+                    ],
+                    [
+                      42.71484375000001,
+                      23.079731762449864
+                    ],
+                    [
+                      44.95605468750001,
+                      21.248422235627
+                    ],
+                    [
+                      48.12011718750001,
+                      22.18740499139876
+                    ],
+                    [
+                      47.76855468750001,
+                      25.005972656239187
+                    ],
+                    [
+                      46.010742187500014,
+                      25.244695951306014
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "Aswan"
+      },
+      {
+        "name_ar": "القاهرة",
+        "name": "القاهرة",
+        "id": 32,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      44.2529296875,
+                      22.836945920943855
+                    ],
+                    [
+                      48.9990234375,
+                      20.34462694382967
+                    ],
+                    [
+                      50.09765625,
+                      22.350075806124867
+                    ],
+                    [
+                      49.43847656249999,
+                      24.686952411999155
+                    ],
+                    [
+                      48.2958984375,
+                      24.686952411999155
+                    ],
+                    [
+                      44.2529296875,
+                      22.836945920943855
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "Cairo"
+      },
+      {
+        "name_ar": "الطايف",
+        "name": "الطايف",
+        "id": 33,
+        "name_en": "Altaif"
+      },
+      {
+        "name_ar": "تيست ٣",
+        "name": "تيست ٣",
+        "id": 41,
+        "city_polygon": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ],
+                    [
+                      46.527099609375,
+                      24.96800759640449
+                    ],
+                    [
+                      46.462554931640625,
+                      24.524011354277604
+                    ],
+                    [
+                      46.976165771484375,
+                      24.510267170845697
+                    ],
+                    [
+                      46.87797546386719,
+                      24.98232366786997
+                    ],
+                    [
+                      46.67884826660156,
+                      24.910103894725733
+                    ],
+                    [
+                      46.632843017578125,
+                      25.000994300028957
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "type": "Feature",
+              "properties": []
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "name_en": "test 2"
+      },
+      {
+        "name_ar": "Testing City",
+        "name": "Testing City",
+        "id": 44,
+        "name_en": "Testing City"
+      },
+      {
+        "name_ar": "tetsts",
+        "name": "tetsts",
+        "id": 45,
+        "name_en": "tetsts"
+      }
+    ],
+    "malfunctions": [
+      {
+        "parent_id": 0,
+        "name_ar": "سمكرةة",
+        "name": "سمكرةة",
+        "id": 1,
+        "name_en": "Plumbing"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "تكييف",
+        "name": "تكييف",
+        "id": 5,
+        "name_en": "Conditioning"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "ميكانيكا",
+        "name": "ميكانيكا",
+        "id": 9,
+        "name_en": "Mechanics"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "كهرباء",
+        "name": "كهرباء",
+        "id": 13,
+        "name_en": "Electricity"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "ميزان",
+        "name": "ميزان",
+        "id": 14,
+        "name_en": "Balance"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "رديترات",
+        "name": "رديترات",
+        "id": 18,
+        "name_en": "Radiators"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "توضيب",
+        "name": "توضيب",
+        "id": 21,
+        "name_en": "Tawdib"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "لا أعرف",
+        "name": "لا أعرف",
+        "id": 25,
+        "name_en": "I don\u0027t know"
+      },
+      {
+        "parent_id": 0,
+        "name_ar": "تيست تعديل",
+        "name": "تيست تعديل",
+        "id": 26,
+        "name_en": " Edit Test"
+      }
+    ],
+    "transfer_types": [
+      {
+        "name_ar": "سطحة",
+        "name": "سطحة",
+        "id": 1,
+        "name_en": "Satha"
+      },
+      {
+        "name_ar": "بنفسي",
+        "name": "بنفسي",
+        "id": 2,
+        "name_en": "By myself"
+      },
+      {
+        "name_ar": "jijj",
+        "name": "jijj",
+        "id": 12,
+        "name_en": "kmkk"
+      },
+      {
+        "name_ar": "تجربة الحذف",
+        "name": "تجربة الحذف",
+        "id": 13,
+        "name_en": "تجربة"
+      },
+      {
+        "name_ar": "تجربة",
+        "name": "تجربة",
+        "id": 14,
+        "name_en": "test"
+      },
+      {
+        "name_ar": "نقل المزودين",
+        "name": "نقل المزودين",
+        "id": 15,
+        "name_en": "نقل المزودين En"
+      }
+    ],
+    "clevertap_default_banner": {
+      "action_url": "https://carefer.co",
+      "image_url": "https://d1890tb6bes4pp.cloudfront.net/banner/MJeaPcPrU0NDl8nV122JWyzL8dTaYGf2HVf5Bh0w.jpg"
+    },
+    "minimum_vehicle_make_year": 2001,
+    "nationalities": [
+      {
+        "name_ar": "باكستان",
+        "name": "باكستان",
+        "id": 1,
+        "name_en": "Pakistani"
+      },
+      {
+        "name_ar": "يماني",
+        "name": "يماني",
+        "id": 2,
+        "name_en": "Yamani"
+      },
+      {
+        "name_ar": "هندي",
+        "name": "هندي",
+        "id": 3,
+        "name_en": "Indian"
+      },
+      {
+        "name_ar": "فلبيني",
+        "name": "فلبيني",
+        "id": 4,
+        "name_en": "Filipino"
+      },
+      {
+        "name_ar": "سعودي",
+        "name": "سعودي",
+        "id": 5,
+        "name_en": "Saudi"
+      },
+      {
+        "name_ar": "سوري",
+        "name": "سوري",
+        "id": 6,
+        "name_en": "Syrian"
+      },
+      {
+        "name_ar": "مصري",
+        "name": "مصري",
+        "id": 7,
+        "name_en": "Egyptian"
+      },
+      {
+        "name_ar": "اردني",
+        "name": "اردني",
+        "id": 8,
+        "name_en": "Jordanian"
+      },
+      {
+        "name_ar": "بنجلاديشي",
+        "name": "بنجلاديشي",
+        "id": 9,
+        "name_en": "Bangladeshi"
+      },
+      {
+        "name_ar": "سوداني",
+        "name": "سوداني",
+        "id": 10,
+        "name_en": "Sudanese"
+      },
+      {
+        "name_ar": "تركي",
+        "name": "تركي",
+        "id": 11,
+        "name_en": "Turkish"
+      },
+      {
+        "name_ar": "لبناني",
+        "name": "لبناني",
+        "id": 12,
+        "name_en": "Lebanese"
+      },
+      {
+        "name_ar": "عراقي",
+        "name": "عراقي",
+        "id": 14,
+        "name_en": "Iraqi"
+      }
+    ],
+    "cylinders": [
+      3,
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "colors": [
+      {
+        "name_ar": "أبيض",
+        "name": "أبيض",
+        "hex": "#FBF5F5",
+        "id": 1,
+        "name_en": "White"
+      },
+      {
+        "name_ar": "رمادي",
+        "name": "رمادي",
+        "id": 2,
+        "name_en": "Grey"
+      },
+      {
+        "name_ar": "رصاصي",
+        "name": "رصاصي",
+        "id": 3,
+        "name_en": "Grey"
+      },
+      {
+        "name_ar": "فضي",
+        "name": "فضي",
+        "id": 4,
+        "name_en": "Silver"
+      },
+      {
+        "name_ar": "أسود",
+        "name": "أسود",
+        "id": 5,
+        "name_en": "Black"
+      },
+      {
+        "name_ar": "أحمر غامق",
+        "name": "أحمر غامق",
+        "id": 6,
+        "name_en": "Dark Red"
+      },
+      {
+        "name_ar": "بني",
+        "name": "بني",
+        "id": 7,
+        "name_en": "Brown"
+      },
+      {
+        "name_ar": "أزرق",
+        "name": "أزرق",
+        "id": 8,
+        "name_en": "Blue"
+      },
+      {
+        "name_ar": "ذهبي",
+        "name": "ذهبي",
+        "id": 9,
+        "name_en": "Golden"
+      },
+      {
+        "name_ar": "بيج",
+        "name": "بيج",
+        "id": 10,
+        "name_en": "Beige"
+      },
+      {
+        "name_ar": "ذهبي فاتح",
+        "name": "ذهبي فاتح",
+        "id": 11,
+        "name_en": "Light Golden"
+      },
+      {
+        "name_ar": "بني غامق",
+        "name": "بني غامق",
+        "id": 12,
+        "name_en": "Dark Brown"
+      },
+      {
+        "name_ar": "أصفر",
+        "name": "أصفر",
+        "id": 13,
+        "name_en": "Yellow"
+      },
+      {
+        "name_ar": "أزرق غامق",
+        "name": "أزرق غامق",
+        "id": 14,
+        "name_en": "Dark Blue"
+      },
+      {
+        "name_ar": "أخضر غامق",
+        "name": "أخضر غامق",
+        "id": 15,
+        "name_en": "Dark Green"
+      },
+      {
+        "name_ar": "أزرق فاتح",
+        "name": "أزرق فاتح",
+        "id": 16,
+        "name_en": "Light Blue"
+      },
+      {
+        "name_ar": "أحمر",
+        "name": "أحمر",
+        "id": 17,
+        "name_en": "Red"
+      },
+      {
+        "name_ar": "رصاصي غامق",
+        "name": "رصاصي غامق",
+        "id": 18,
+        "name_en": "Dark Grey"
+      },
+      {
+        "name_ar": "أخضر",
+        "name": "أخضر",
+        "id": 19,
+        "name_en": "Green"
+      },
+      {
+        "name_ar": "ذهبي غامق",
+        "name": "ذهبي غامق",
+        "id": 20,
+        "name_en": "Dark Golden"
+      },
+      {
+        "name_ar": "رصاصي فاتح",
+        "name": "رصاصي فاتح",
+        "id": 21,
+        "name_en": "Light Grey"
+      },
+      {
+        "name_ar": "برتقالي",
+        "name": "برتقالي",
+        "hex": "#FB9104",
+        "id": 22,
+        "name_en": "Orange"
+      },
+      {
+        "name_ar": "أخضر فاتح",
+        "name": "أخضر فاتح",
+        "id": 23,
+        "name_en": "Light Green"
+      },
+      {
+        "name_ar": "بني فاتح",
+        "name": "بني فاتح",
+        "id": 24,
+        "name_en": "Light Brown"
+      },
+      {
+        "name_ar": "كحلي update",
+        "name": "كحلي update",
+        "id": 25,
+        "name_en": "Blue 2"
+      },
+      {
+        "name_ar": " تعديل ألوان تيست",
+        "name": " تعديل ألوان تيست",
+        "id": 26,
+        "name_en": "Test colors Edit"
+      },
+      {
+        "name_ar": "ازرق فاتح",
+        "name": "ازرق فاتح",
+        "id": 27,
+        "name_en": "ازرق فاتح"
+      },
+      {
+        "name_ar": "احمر",
+        "name": "احمر",
+        "id": 28,
+        "name_en": "احمر"
+      },
+      {
+        "name_ar": "ssss",
+        "name": "ssss",
+        "hex": "#000000",
+        "id": 29,
+        "name_en": "aaaaaaaa"
+      },
+      {
+        "name_ar": "uuuuuuuuuu",
+        "name": "uuuuuuuuuu",
+        "hex": "#C2B3B3",
+        "id": 30,
+        "name_en": "uuuuuuuu"
+      },
+      {
+        "name_ar": "uuuuuuu",
+        "name": "uuuuuuu",
+        "hex": "#000000",
+        "id": 31,
+        "name_en": "uuuuuuuuuuuuuuu"
+      },
+      {
+        "name_ar": "saeww",
+        "name": "saeww",
+        "hex": "#000000",
+        "id": 32,
+        "name_en": "ssa"
+      },
+      {
+        "name_ar": "اخضرووووو",
+        "name": "اخضرووووو",
+        "hex": "#55AA7E",
+        "id": 33,
+        "name_en": "Greenooooo"
+      },
+      {
+        "name_ar": "تست لون",
+        "name": "تست لون",
+        "hex": "#1C9A82",
+        "id": 34,
+        "name_en": "test color"
+      }
+    ],
+    "cancellation_reasons": [
+      {
+        "name_ar": "تجربة إلغاء الطلب من التطبيق",
+        "name": "تجربة إلغاء الطلب من التطبيق",
+        "id": 11,
+        "name_en": "Testing cancel"
+      },
+      {
+        "name_ar": "سبب الإلغاء 3",
+        "name": "سبب الإلغاء 3",
+        "id": 13,
+        "name_en": "cancel reason"
+      },
+      {
+        "name_ar": "لم يصل عروض أسعار",
+        "name": "لم يصل عروض أسعار",
+        "id": 15,
+        "name_en": "No Quotations"
+      },
+      {
+        "name_ar": "أخرى ...",
+        "name": "أخرى ...",
+        "id": 16,
+        "name_en": "..Other"
+      },
+      {
+        "name_ar": "أسباب أخرى ",
+        "name": "أسباب أخرى ",
+        "id": 18,
+        "name_en": "Other Reasons"
+      },
+      {
+        "name_ar": "testing",
+        "name": "testing",
+        "id": 19,
+        "name_en": "testing"
+      },
+      {
+        "name_ar": "testing 1",
+        "name": "testing 1",
+        "id": 20,
+        "name_en": "testing 1"
+      },
+      {
+        "name_ar": "test",
+        "name": "test",
+        "id": 34,
+        "name_en": "2test"
+      }
+    ],
+    "previous_order_status": [
+      {
+        "name_ar": "تم إرسال الطلب للمزودين",
+        "name": "تم إرسال الطلب للمزودين",
+        "id": 0,
+        "name_en": "Order sent to providers"
+      },
+      {
+        "name_ar": "تم قبول الطلب",
+        "name": "تم قبول الطلب",
+        "id": 3,
+        "name_en": "Order accepted"
+      },
+      {
+        "name_ar": "تم التسعير",
+        "name": "تم التسعير",
+        "id": 5,
+        "name_en": "Order priced"
+      },
+      {
+        "name_ar": "العميل رفض كل العروض",
+        "name": "العميل رفض كل العروض",
+        "id": 6,
+        "name_en": "Customer reject all quotations"
+      },
+      {
+        "name_ar": "تم قبول العميل",
+        "name": "تم قبول العميل",
+        "id": 7,
+        "name_en": "Customer accepted"
+      },
+      {
+        "name_ar": "تم استلام السيارة",
+        "name": "تم استلام السيارة",
+        "id": 10,
+        "name_en": "Car received"
+      },
+      {
+        "name_ar": "بانتظار تحديد موعد الخدمة",
+        "name": "بانتظار تحديد موعد الخدمة",
+        "id": 12,
+        "name_en": "Waiting for a service appointment"
+      },
+      {
+        "name_ar": "في انتظار موعد خدمة التوصيل\n",
+        "name": "في انتظار موعد خدمة التوصيل\n",
+        "id": 15,
+        "name_en": "Waiting for a service pickup appointment"
+      },
+      {
+        "name_ar": "بانتظار دفع فاتورة النقل",
+        "name": "بانتظار دفع فاتورة النقل",
+        "id": 16,
+        "name_en": "Waiting Customer To Pay  PickupTransfer Bills"
+      },
+      {
+        "name_ar": "تم دفع فاتورة النقل",
+        "name": "تم دفع فاتورة النقل",
+        "id": 17,
+        "name_en": " PickupTransfer Bills paid"
+      },
+      {
+        "name_ar": "تم بدء الصيانة",
+        "name": "تم بدء الصيانة",
+        "id": 20,
+        "name_en": "Maintenance started"
+      },
+      {
+        "name_ar": "تم استلام السيارة من السطحة",
+        "name": "تم استلام السيارة من السطحة",
+        "id": 30,
+        "name_en": "Car received"
+      },
+      {
+        "name_ar": "العميل سلم السيارة للسطحة",
+        "name": "العميل سلم السيارة للسطحة",
+        "id": 31,
+        "name_en": "Customer deliver car to Satha"
+      },
+      {
+        "name_ar": "السطحة سلمت السيارة للورشة",
+        "name": "السطحة سلمت السيارة للورشة",
+        "id": 32,
+        "name_en": "Satha deliver car to workshop"
+      },
+      {
+        "name_ar": "تم إرفاق صور إستلام السيارة",
+        "name": "تم إرفاق صور إستلام السيارة",
+        "id": 40,
+        "name_en": "Receive car pictures attached"
+      },
+      {
+        "name_ar": "تم الفحص",
+        "name": "تم الفحص",
+        "id": 45,
+        "name_en": "Examination finished"
+      },
+      {
+        "name_ar": "تم رفع مرفقات الصيانة",
+        "name": "تم رفع مرفقات الصيانة",
+        "id": 50,
+        "name_en": "Maintenance attachments uploaded"
+      },
+      {
+        "name_ar": "انتهت الصيانة",
+        "name": "انتهت الصيانة",
+        "id": 60,
+        "name_en": "Maintenance done"
+      },
+      {
+        "name_ar": "جاري تسليم السيارة",
+        "name": "جاري تسليم السيارة",
+        "id": 70,
+        "name_en": "Car delivering to customer"
+      },
+      {
+        "name_ar": "بانتظار العميل لتحديد موعد إعادة المركبة",
+        "name": "بانتظار العميل لتحديد موعد إعادة المركبة",
+        "id": 75,
+        "name_en": "Waiting Customer Select Return Date"
+      },
+      {
+        "name_ar": "بانتظار دفع فاتورة النقل",
+        "name": "بانتظار دفع فاتورة النقل",
+        "id": 76,
+        "name_en": "Waiting Customer To Pay  Return Transfer Bills"
+      },
+      {
+        "name_ar": "تم دفع فاتورة النقل",
+        "name": "تم دفع فاتورة النقل",
+        "id": 77,
+        "name_en": " Return Transfer Bills paid"
+      },
+      {
+        "name_ar": "تم تسليم السيارة",
+        "name": "تم تسليم السيارة",
+        "id": 80,
+        "name_en": "Car delivered"
+      },
+      {
+        "name_ar": "مكتمل",
+        "name": "مكتمل",
+        "id": 90,
+        "name_en": "Completed"
+      },
+      {
+        "name_ar": "تم تسليم السيارة للنقل",
+        "name": "تم تسليم السيارة للنقل",
+        "id": 100,
+        "name_en": "Car delivered for transportation"
+      },
+      {
+        "name_ar": "السطحة استلمت السيارة من الورشة",
+        "name": "السطحة استلمت السيارة من الورشة",
+        "id": 101,
+        "name_en": "Satha receive car from workshop"
+      },
+      {
+        "name_ar": "جاري تسليم السيارة للعميل",
+        "name": "جاري تسليم السيارة للعميل",
+        "id": 110,
+        "name_en": "Car delivering to customer"
+      },
+      {
+        "name_ar": "تم تسليم السيارة للعميل",
+        "name": "تم تسليم السيارة للعميل",
+        "id": 120,
+        "name_en": "Car delivered to customer"
+      },
+      {
+        "name_ar": "مكتمل",
+        "name": "مكتمل",
+        "id": 130,
+        "name_en": "Completed"
+      },
+      {
+        "name_ar": "تم قبول العميل",
+        "name": "تم قبول العميل",
+        "id": 140,
+        "name_en": "Customer accepted"
+      },
+      {
+        "name_ar": "تم قبول العرض الإضافي",
+        "name": "تم قبول العرض الإضافي",
+        "id": 150,
+        "name_en": "Additional quotation accepted"
+      },
+      {
+        "name_ar": "تم رفض العرض الإضافي",
+        "name": "تم رفض العرض الإضافي",
+        "id": 160,
+        "name_en": "Additional quotation rejected"
+      },
+      {
+        "name_ar": "المزود ألغى عرض السعر بنفسه",
+        "name": "المزود ألغى عرض السعر بنفسه",
+        "id": 170,
+        "name_en": "Quotation Canceled by Provider"
+      },
+      {
+        "name_ar": "ملغي",
+        "name": "ملغي",
+        "id": 500,
+        "name_en": "Cancelled"
+      },
+      {
+        "name_ar": "تم تجاوز محاولات الإرسال",
+        "name": "تم تجاوز محاولات الإرسال",
+        "id": 600,
+        "name_en": "Send attempts exceeded"
+      },
+      {
+        "name_ar": "لايوجد ورش مطابقة",
+        "name": "لايوجد ورش مطابقة",
+        "id": 700,
+        "name_en": "There are no matching workshops"
+      }
+    ],
+    "plate_letters": [
+      {
+        "name_ar": "أ",
+        "name": "أ",
+        "id": 6,
+        "name_en": "A"
+      },
+      {
+        "name_ar": "ا",
+        "name": "ا",
+        "id": 19,
+        "name_en": "A"
+      },
+      {
+        "name_ar": "ب",
+        "name": "ب",
+        "id": 4,
+        "name_en": "B"
+      },
+      {
+        "name_ar": "ح",
+        "name": "ح",
+        "id": 1,
+        "name_en": "J"
+      },
+      {
+        "name_ar": "د",
+        "name": "د",
+        "id": 7,
+        "name_en": "D"
+      },
+      {
+        "name_ar": "ر",
+        "name": "ر",
+        "id": 8,
+        "name_en": "R"
+      },
+      {
+        "name_ar": "س",
+        "name": "س",
+        "id": 9,
+        "name_en": "S"
+      },
+      {
+        "name_ar": "ص",
+        "name": "ص",
+        "id": 2,
+        "name_en": "X"
+      },
+      {
+        "name_ar": "ط",
+        "name": "ط",
+        "id": 5,
+        "name_en": "T"
+      },
+      {
+        "name_ar": "ع",
+        "name": "ع",
+        "id": 10,
+        "name_en": "E"
+      },
+      {
+        "name_ar": "ق",
+        "name": "ق",
+        "id": 11,
+        "name_en": "G"
+      },
+      {
+        "name_ar": "ك",
+        "name": "ك",
+        "id": 12,
+        "name_en": "K"
+      },
+      {
+        "name_ar": "ل",
+        "name": "ل",
+        "id": 13,
+        "name_en": "L"
+      },
+      {
+        "name_ar": "م",
+        "name": "م",
+        "id": 14,
+        "name_en": "Z"
+      },
+      {
+        "name_ar": "ن",
+        "name": "ن",
+        "id": 15,
+        "name_en": "N"
+      },
+      {
+        "name_ar": "ه",
+        "name": "ه",
+        "id": 16,
+        "name_en": "H"
+      },
+      {
+        "name_ar": "و",
+        "name": "و",
+        "id": 17,
+        "name_en": "U"
+      },
+      {
+        "name_ar": "ي",
+        "name": "ي",
+        "id": 3,
+        "name_en": "V"
+      }
+    ],
+    "contact_us_details": {
+      "whatsapp": 966599666521,
+      "website": "https://carefer.co",
+      "phone": 556677889,
+      "email": "info@carefer.co"
+    },
+    "place_types": [
+      {
+        "name_ar": "داخل الصناعية",
+        "name": "داخل الصناعية",
+        "id": 1,
+        "name_en": "inside workshop"
+      },
+      {
+        "name_ar": "خارج الصناعية",
+        "name": "خارج الصناعية",
+        "id": 2,
+        "name_en": "Oustside workshop"
+      },
+      {
+        "name_ar": "اختبار",
+        "name": "اختبار",
+        "id": 3,
+        "name_en": "test"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني, موقع شركة كاريفر الجديد والمبني, موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني, موقع شركة كاريفر الجديد والمبني, موقع شركة كاريفر الجديد والمبني",
+        "id": 5,
+        "name_en": "موقع شركة كاريفر الجديد والمبني, موقع شركة كاريفر الجديد والمبني , موقع شركة كاريفر الجديد والمبني"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني",
+        "id": 6,
+        "name_en": "موقع شركة كاريفر الجديد والمبني"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني",
+        "id": 7,
+        "name_en": "موقع شركة كاريفر الجديد والمبني"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني",
+        "id": 8,
+        "name_en": "موقع شركة كاريفر الجديد والمبني"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني",
+        "id": 9,
+        "name_en": "موقع شركة كاريفر الجديد والمبني"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني",
+        "id": 10,
+        "name_en": "موقع شركة كاريفر الجديد والمبني"
+      },
+      {
+        "name_ar": "موقع شركة كاريفر الجديد والمبني",
+        "name": "موقع شركة كاريفر الجديد والمبني",
+        "id": 11,
+        "name_en": "موقع شركة كاريفر الجديد والمبني"
+      }
+    ],
+    "days": {
+      "Thu": "الخميس",
+      "Tue": "الثلاثاء",
+      "Sat": "السبت",
+      "Wed": "الاربعاء",
+      "Fri": "الجمعة",
+      "Sun": "الأحد",
+      "Mon": "الأثنين"
+    },
+    "engine_types": [
+      {
+        "name_ar": "محركات بنزين ",
+        "name": "محركات بنزين ",
+        "id": 4,
+        "is_default": 1,
+        "name_en": " Petrol Engines"
+      },
+      {
+        "name_ar": "محركات الديزل",
+        "name": "محركات الديزل",
+        "id": 5,
+        "is_default": 0,
+        "name_en": "Diesel Engines"
+      },
+      {
+        "name_ar": "محركات الغاز",
+        "name": "محركات الغاز",
+        "id": 6,
+        "is_default": 0,
+        "name_en": "Gaz Engines"
+      },
+      {
+        "name_ar": "المحركات الكهربائية",
+        "name": "المحركات الكهربائية",
+        "id": 7,
+        "is_default": 0,
+        "name_en": "Electric Engines"
+      },
+      {
+        "name_ar": "محرك هجين",
+        "name": "محرك هجين",
+        "id": 8,
+        "is_default": 0,
+        "name_en": "Hybrid Engine"
+      }
+    ],
+    "current_order_status": [
+      {
+        "name_ar": "طلب جديد",
+        "name": "طلب جديد",
+        "id": 0,
+        "name_en": "New Order"
+      },
+      {
+        "name_ar": "بانتظار قبول مزودي الخدمة",
+        "name": "بانتظار قبول مزودي الخدمة",
+        "id": 3,
+        "name_en": "Waiting for service provider\u0027s acceptance"
+      },
+      {
+        "name_ar": "بانتظار التسعير",
+        "name": "بانتظار التسعير",
+        "id": 5,
+        "name_en": "Waiting for offers"
+      },
+      {
+        "name_ar": "بانتظاراستلام المزيد من عروض الأسعار",
+        "name": "بانتظاراستلام المزيد من عروض الأسعار",
+        "id": 6,
+        "name_en": "Waiting for more offers"
+      },
+      {
+        "name_ar": "بانتظار قبولك عرض السعر",
+        "name": "بانتظار قبولك عرض السعر",
+        "id": 7,
+        "name_en": "Waiting for you to accept the price offer"
+      },
+      {
+        "name_ar": "تم قبول عرض السعر",
+        "name": "تم قبول عرض السعر",
+        "id": 10,
+        "name_en": "price offer accepted "
+      },
+      {
+        "name_ar": "بانتظار دفع فواتير الصيانة",
+        "name": "بانتظار دفع فواتير الصيانة",
+        "id": 11,
+        "name_en": "Waiting to pay maintenance invoices"
+      },
+      {
+        "name_ar": "العميل دفع فاتورة الصيانة",
+        "name": "العميل دفع فاتورة الصيانة",
+        "id": 12,
+        "name_en": "customer pay maintenance bill"
+      },
+      {
+        "name_ar": "حدد موعد التسليم",
+        "name": "حدد موعد التسليم",
+        "id": 13,
+        "name_en": "Select a pick up time"
+      },
+      {
+        "name_ar": "العميل متوجة الي مركز الخدمة",
+        "name": "العميل متوجة الي مركز الخدمة",
+        "id": 14,
+        "name_en": "Customer Will go to center"
+      },
+      {
+        "name_ar": "حدد موعد التسليم",
+        "name": "حدد موعد التسليم",
+        "id": 15,
+        "name_en": "Select a pick up time"
+      },
+      {
+        "name_ar": "بانتظار دفع قيمة النقل",
+        "name": "بانتظار دفع قيمة النقل",
+        "id": 16,
+        "name_en": "Waiting for car carrier payment"
+      },
+      {
+        "name_ar": "تم دفع قيمة النقل",
+        "name": "تم دفع قيمة النقل",
+        "id": 17,
+        "name_en": "Car carrier payment received "
+      },
+      {
+        "name_ar": "بانتظار فحص سيارتك",
+        "name": "بانتظار فحص سيارتك",
+        "id": 20,
+        "name_en": "Waiting to check up on your car"
+      },
+      {
+        "name_ar": "بانتظار توجه الفني للعميل",
+        "name": "بانتظار توجه الفني للعميل",
+        "id": 21,
+        "name_en": "Waiting for technical guidance to the customer"
+      },
+      {
+        "name_ar": "الفني في الطريق",
+        "name": "الفني في الطريق",
+        "id": 22,
+        "name_en": "Technical on the way"
+      },
+      {
+        "name_ar": "بانتظار قبول السطحة",
+        "name": "بانتظار قبول السطحة",
+        "id": 30,
+        "name_en": "Waiting for car carrier to accept"
+      },
+      {
+        "name_ar": "السطحة في طريقها إليك",
+        "name": "السطحة في طريقها إليك",
+        "id": 31,
+        "name_en": "Car carrier is heading to you"
+      },
+      {
+        "name_ar": "سطحة في طريقها لتسليم السيارة",
+        "name": "سطحة في طريقها لتسليم السيارة",
+        "id": 32,
+        "name_en": "Towing truck on its way to drop-off your car"
+      },
+      {
+        "name_ar": "بانتظار فحص سيارتك",
+        "name": "بانتظار فحص سيارتك",
+        "id": 40,
+        "name_en": "Waiting to check up on your car"
+      },
+      {
+        "name_ar": "جاري الفحص",
+        "name": "جاري الفحص",
+        "id": 45,
+        "name_en": "Check up in progress"
+      },
+      {
+        "name_ar": "جاري عمل الصيانة",
+        "name": "جاري عمل الصيانة",
+        "id": 50,
+        "name_en": "Maintenance in progress"
+      },
+      {
+        "name_ar": "جاري عمل الصيانة",
+        "name": "جاري عمل الصيانة",
+        "id": 60,
+        "name_en": "Maintenance in progress"
+      },
+      {
+        "name_ar": "تم الانتهاء من الصيانة",
+        "name": "تم الانتهاء من الصيانة",
+        "id": 70,
+        "name_en": "Maintenance is finished"
+      },
+      {
+        "name_ar": "بانتظار تحديد موعد التسليم",
+        "name": "بانتظار تحديد موعد التسليم",
+        "id": 75,
+        "name_en": "Waiting for pick up time"
+      },
+      {
+        "name_ar": "بانتظار دفع قيمة النقل",
+        "name": "بانتظار دفع قيمة النقل",
+        "id": 76,
+        "name_en": "Waiting the car carrier payment"
+      },
+      {
+        "name_ar": "تم دفع قيمة النقل",
+        "name": "تم دفع قيمة النقل",
+        "id": 77,
+        "name_en": "Car carrier payment received "
+      },
+      {
+        "name_ar": "سيارتك جاهزة للتسليم",
+        "name": "سيارتك جاهزة للتسليم",
+        "id": 80,
+        "name_en": "Your car is ready for pick up"
+      },
+      {
+        "name_ar": "طلبك مكتمل",
+        "name": "طلبك مكتمل",
+        "id": 90,
+        "name_en": "Your order is complete"
+      },
+      {
+        "name_ar": "بانتظار قبول السطحة",
+        "name": "بانتظار قبول السطحة",
+        "id": 100,
+        "name_en": "Waiting for a car carrier  acceptance"
+      },
+      {
+        "name_ar": "السطحة في طريقها إلى الورشة",
+        "name": "السطحة في طريقها إلى الورشة",
+        "id": 101,
+        "name_en": "Car carrier heading to the service provider"
+      },
+      {
+        "name_ar": "السطحة في طريقها إليك",
+        "name": "السطحة في طريقها إليك",
+        "id": 110,
+        "name_en": "Car carrier heading to you"
+      },
+      {
+        "name_ar": "وصلت السطحة",
+        "name": "وصلت السطحة",
+        "id": 120,
+        "name_en": "Car carrier has arrived"
+      },
+      {
+        "name_ar": "طلبك مكتمل",
+        "name": "طلبك مكتمل",
+        "id": 130,
+        "name_en": "Your order is completed"
+      },
+      {
+        "name_ar": "بانتظار قبول السعر الإضافي",
+        "name": "بانتظار قبول السعر الإضافي",
+        "id": 140,
+        "name_en": "Waiting for you to accept added charge"
+      },
+      {
+        "name_ar": "تم قبول السعر الإضافي",
+        "name": "تم قبول السعر الإضافي",
+        "id": 150,
+        "name_en": "Added charge is accepted"
+      },
+      {
+        "name_ar": "تم رفض السعر الإضافي",
+        "name": "تم رفض السعر الإضافي",
+        "id": 160,
+        "name_en": "Added charge is rejected"
+      },
+      {
+        "name_ar": "تم إلغاء السعر الإضافي",
+        "name": "تم إلغاء السعر الإضافي",
+        "id": 170,
+        "name_en": "Added charge is canceled"
+      },
+      {
+        "name_ar": "طلب ملغي",
+        "name": "طلب ملغي",
+        "id": 500,
+        "name_en": "Order is canceled "
+      },
+      {
+        "name_ar": "جاري البحث عن مزودي الخدمة",
+        "name": "جاري البحث عن مزودي الخدمة",
+        "id": 600,
+        "name_en": "Looking for service providers"
+      },
+      {
+        "name_ar": "لا يوجد مزودي خدمة لطلبك",
+        "name": "لا يوجد مزودي خدمة لطلبك",
+        "id": 700,
+        "name_en": "No service providers available"
+      }
+    ],
+    "status": {
+      "1": "مفعل",
+      "2": "غير مفعل"
+    }
+  },
+  "message": "تم استرجاع الثوابت بنجاح"
+}); 
+  }
+  jsonTreeCreate0();
+ </script>
+
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:23:03 PM</td>
+        <td>
+          Test Passed.
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>
